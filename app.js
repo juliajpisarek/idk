@@ -459,9 +459,30 @@ for(const id of matches){
 let activeChat=null;
 const $=id=>document.getElementById(id);
 function persist(){try{localStorage.setItem('spud-v1',JSON.stringify({index,matches,chats,admirer,pollVotes}));}catch{}}
-function render(){const p=profiles[index%profiles.length];$('name').textContent=`${p.name}, ${p.age}`;$('location').textContent='⌁ '+p.place;$('bio').textContent=p.bio;$('profile-prompt').textContent=p.prompt;$('profile-answer').textContent=p.answer;setPortrait($('potato'),index%profiles.length);$('tags').replaceChildren(...p.tags.map(t=>{const s=document.createElement('span');s.textContent=t;return s;}));$('count').textContent=matches.length;$('undo').disabled=!history.length;}
+function currentDiscoverId(){
+ for(let offset=0;offset<profiles.length;offset++){
+  const candidate=(index+offset)%profiles.length;
+  if(!matches.includes(candidate)){
+   if(offset){index+=offset;persist();}
+   return candidate;
+  }
+ }
+ return null;
+}
+function render(){
+ const id=currentDiscoverId(),exhausted=id===null;
+ $('count').textContent=matches.length;
+ $('undo').disabled=!history.length;
+ $('card').classList.toggle('hidden',exhausted);
+ $('discovery-empty').classList.toggle('hidden',!exhausted);
+ $('swipe-hint').classList.toggle('hidden',exhausted);
+ $('admirer-open').classList.toggle('hidden',exhausted);
+ $('pass').disabled=exhausted;$('like').disabled=exhausted;
+ if(exhausted)return;
+ const p=profiles[id];
+$('name').textContent=`${p.name}, ${p.age}`;$('location').textContent='⌁ '+p.place;$('bio').textContent=p.bio;$('profile-prompt').textContent=p.prompt;$('profile-answer').textContent=p.answer;setPortrait($('potato'),index%profiles.length);$('tags').replaceChildren(...p.tags.map(t=>{const s=document.createElement('span');s.textContent=t;return s;}));$('count').textContent=matches.length;}
 function renderMatches(){$('empty').hidden=matches.length>0;$('match-list').replaceChildren(...matches.map(i=>{const p=profiles[i],el=document.createElement('article');el.className='match-item';const icon=document.createElement('button');icon.className='match-photo';icon.setAttribute('aria-label',`View ${p.name}’s profile`);setPortrait(icon,i);icon.onclick=()=>openProfile(i);const name=document.createElement('h3');name.textContent=`${p.name}, ${p.age}`;const info=document.createElement('p');info.textContent=p.bio;const chat=document.createElement('button');chat.className='chat-button';chat.textContent='Say hello 💬';chat.setAttribute('aria-label',`Chat with ${p.name}`);chat.onclick=()=>openChat(i);const view=document.createElement('button');view.className='view-profile';view.textContent='View profile';view.onclick=()=>openProfile(i);el.append(icon,name,info,chat,view);return el;}));}
-function swipe(liked){const id=index%profiles.length;history.push({index,matches:[...matches]});if(liked&&!matches.includes(id)){matches.push(id);$('match-message').textContent=`${profiles[id].name} likes you too. Looks like something good is growing.`;$('match-dialog').showModal();}index++;persist();render();$('status').textContent=liked?'A little love planted.':'On to the next spud.';}
+function swipe(liked){const id=currentDiscoverId();if(id===null)return;history.push({index,matches:[...matches]});if(liked&&!matches.includes(id)){matches.push(id);$('match-message').textContent=`${profiles[id].name} likes you too. Looks like something good is growing.`;$('match-dialog').showModal();}index++;persist();render();$('status').textContent=liked?'A little love planted.':'On to the next spud.';}
 $('pass').onclick=()=>swipe(false);$('like').onclick=()=>swipe(true);$('undo').onclick=()=>{const last=history.pop();if(!last)return;index=last.index;matches=last.matches;persist();render();$('status').textContent='Last swipe undone.';};
 $('keep').onclick=()=>$('match-dialog').close();
 function tab(discover){$('discover').classList.toggle('hidden',!discover);$('matches').classList.toggle('hidden',discover);$('discover-tab').classList.toggle('active',discover);$('matches-tab').classList.toggle('active',!discover);if(!discover)renderMatches();}
@@ -592,7 +613,8 @@ function renderPoll(id){
 }
 $('photo-prev').onclick=()=>{if(viewedProfile!==null)showProfilePhoto(viewedProfile,profilePhotoIndex-1);};
 $('photo-next').onclick=()=>{if(viewedProfile!==null)showProfilePhoto(viewedProfile,profilePhotoIndex+1);};
-$('discover-profile').onclick=()=>openProfile(index%profiles.length);
+$('discover-profile').onclick=()=>{const id=currentDiscoverId();if(id!==null)openProfile(id);};
+$('discovery-matches').onclick=()=>tab(false);
 
 function renderChatStarters(id){
  $('chat-starters').replaceChildren(...SpudChat.starters(profiles[id]).map(text=>{

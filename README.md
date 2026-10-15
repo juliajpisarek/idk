@@ -35,3 +35,7 @@ Open Photos, prompts & more in Discover or View profile in Matches. Every potato
 ## Free personality chats
 
 Chats run entirely in the browser without accounts, API keys, billing, or a backend. chat-engine.js selects topic-aware scripted responses from chat-personalities.js and each profile. It handles greetings, pets, work, music, hobbies, relationship intentions, dates, food, compliments, low moods, and boundaries. Short follow-ups reuse the prior topic. Replies avoid recently used lines where alternatives exist. Names introduced with “Call me Alex” and favorites such as “My favorite food is pizza” can be recalled from the saved conversation; memory stays separate per potato. This is limited scripted conversation, not general-purpose AI. Run `node --test tests/chat.test.cjs` for the conversation checks.
+
+## Discovery
+
+Discover skips matched potatoes, including after reload and matches made through profiles or Secret Admirer. When all potatoes are matched, an empty state links to Matches. Undo still reverses the most recent swipe. Run `node --test tests/*.test.cjs` for chat and discovery checks.
