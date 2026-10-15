@@ -433,9 +433,16 @@ const profiles = [
     }
   }
 ];
+profiles.forEach((profile,id)=>Object.assign(profile,profileDetails[id]));
 let saved;try{saved=JSON.parse(localStorage.getItem('spud-v1'));}catch{}
 let index=Number.isInteger(saved?.index)&&saved.index>=0?saved.index:0;
 let matches=Array.isArray(saved?.matches)?saved.matches.filter(i=>Number.isInteger(i)&&i>=0&&i<profiles.length):[];
+let pollVotes={};
+for(const [id,vote] of Object.entries(saved?.pollVotes||{})){
+ if(profiles[id]?.poll&&Number.isInteger(vote)&&vote>=0&&vote<profiles[id].poll.options.length)pollVotes[id]=vote;
+}
+let profilePhotoIndex=0;
+let viewedProfile=null;
 let history=[];
 const validProfile=id=>Number.isInteger(id)&&id>=0&&id<profiles.length;
 let admirer={
@@ -451,7 +458,7 @@ for(const id of matches){
 }
 let activeChat=null;
 const $=id=>document.getElementById(id);
-function persist(){try{localStorage.setItem('spud-v1',JSON.stringify({index,matches,chats,admirer}));}catch{}}
+function persist(){try{localStorage.setItem('spud-v1',JSON.stringify({index,matches,chats,admirer,pollVotes}));}catch{}}
 function render(){const p=profiles[index%profiles.length];$('name').textContent=`${p.name}, ${p.age}`;$('location').textContent='⌁ '+p.place;$('bio').textContent=p.bio;$('profile-prompt').textContent=p.prompt;$('profile-answer').textContent=p.answer;setPortrait($('potato'),index%profiles.length);$('tags').replaceChildren(...p.tags.map(t=>{const s=document.createElement('span');s.textContent=t;return s;}));$('count').textContent=matches.length;$('undo').disabled=!history.length;}
 function renderMatches(){$('empty').hidden=matches.length>0;$('match-list').replaceChildren(...matches.map(i=>{const p=profiles[i],el=document.createElement('article');el.className='match-item';const icon=document.createElement('button');icon.className='match-photo';icon.setAttribute('aria-label',`View ${p.name}’s profile`);setPortrait(icon,i);icon.onclick=()=>openProfile(i);const name=document.createElement('h3');name.textContent=`${p.name}, ${p.age}`;const info=document.createElement('p');info.textContent=p.bio;const chat=document.createElement('button');chat.className='chat-button';chat.textContent='Say hello 💬';chat.setAttribute('aria-label',`Chat with ${p.name}`);chat.onclick=()=>openChat(i);const view=document.createElement('button');view.className='view-profile';view.textContent='View profile';view.onclick=()=>openProfile(i);el.append(icon,name,info,chat,view);return el;}));}
 function swipe(liked){const id=index%profiles.length;history.push({index,matches:[...matches]});if(liked&&!matches.includes(id)){matches.push(id);$('match-message').textContent=`${profiles[id].name} likes you too. Looks like something good is growing.`;$('match-dialog').showModal();}index++;persist();render();$('status').textContent=liked?'A little love planted.':'On to the next spud.';}
@@ -538,7 +545,8 @@ function setPortrait(el,id){
  el.setAttribute('aria-label',`Portrait of ${profiles[id].name}`);
 }
 function openProfile(id){
- if(!matches.includes(id))return;
+ if(!validProfile(id))return;
+ viewedProfile=id;profilePhotoIndex=0;
  const p=profiles[id];setPortrait($('full-profile-photo'),id);
  $('full-profile-name').textContent=`${p.name}, ${p.age}`;
  $('full-profile-location').textContent=p.place;
@@ -546,7 +554,49 @@ function openProfile(id){
  $('full-profile-prompt').textContent=p.prompt;
  $('full-profile-answer').textContent=p.answer;
  $('full-profile-tags').replaceChildren(...p.tags.map(tag=>{const span=document.createElement('span');span.textContent=tag;return span;}));
- $('profile-chat').onclick=()=>{$('profile-dialog').close();openChat(id);};
+ renderProfileExtras(id);
+ $('profile-chat').textContent=matches.includes(id)?'Send a message 💬':'Like this potato ♥';
+ $('profile-chat').onclick=()=>{$('profile-dialog').close();if(!matches.includes(id)){matches.push(id);history=[];persist();render();renderMatches();}openChat(id);};
  $('profile-dialog').showModal();
 }
 $('profile-close').onclick=()=>$('profile-dialog').close();
+
+function showProfilePhoto(id,position){
+ const p=profiles[id];profilePhotoIndex=(position+p.photos.length)%p.photos.length;
+ const photo=p.photos[profilePhotoIndex],image=$('full-profile-photo');
+ image.classList.remove('photo-friends','photo-life');setPortrait(image,id);
+ if(photo.kind!=='portrait')image.classList.add(`photo-${photo.kind}`);
+ image.setAttribute('aria-label',`${p.name}: ${photo.caption}`);
+ $('photo-caption').textContent=photo.caption;
+ $('photo-count').textContent=`${profilePhotoIndex+1} / ${p.photos.length}`;
+ $('photo-thumbs').replaceChildren(...p.photos.map((photo,i)=>{
+  const button=document.createElement('button');button.className='photo-thumb';setPortrait(button,id);
+  if(photo.kind!=='portrait')button.classList.add(`photo-${photo.kind}`);
+  button.setAttribute('aria-label',`Photo ${i+1}: ${photo.caption}`);
+  button.setAttribute('aria-pressed',String(i===profilePhotoIndex));
+  button.onclick=()=>showProfilePhoto(id,i);return button;
+ }));
+}
+function renderProfileExtras(id){
+ const p=profiles[id];showProfilePhoto(id,0);
+ $('profile-facts').replaceChildren(...Object.entries(p.facts).map(([label,value])=>{
+  const item=document.createElement('div'),key=document.createElement('dt'),text=document.createElement('dd');
+  key.textContent=label;text.textContent=value;item.append(key,text);return item;
+ }));
+ $('profile-prompts').replaceChildren(...p.prompts.map(prompt=>{
+  const item=document.createElement('section');item.className='prompt-card';
+  const question=document.createElement('h3'),answer=document.createElement('p');question.textContent=prompt.question;answer.textContent=prompt.answer;item.append(question,answer);return item;
+ }));
+ renderPoll(id);
+}
+function renderPoll(id){
+ const poll=profiles[id].poll,vote=pollVotes[id];$('poll-question').textContent=poll.question;
+ $('poll-options').replaceChildren(...poll.options.map((option,i)=>{
+  const button=document.createElement('button');button.className='poll-option';button.textContent=`${vote===i?'♥ ':''}${option}`;
+  button.setAttribute('aria-pressed',String(vote===i));button.onclick=()=>{pollVotes[id]=i;persist();renderPoll(id);};return button;
+ }));
+ $('poll-status').textContent=vote===undefined?'Pick an answer to break the ice.':'Your choice is saved. Tap another answer to change it.';
+}
+$('photo-prev').onclick=()=>{if(viewedProfile!==null)showProfilePhoto(viewedProfile,profilePhotoIndex-1);};
+$('photo-next').onclick=()=>{if(viewedProfile!==null)showProfilePhoto(viewedProfile,profilePhotoIndex+1);};
+$('discover-profile').onclick=()=>openProfile(index%profiles.length);

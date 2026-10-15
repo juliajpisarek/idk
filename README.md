@@ -27,3 +27,7 @@ Tap the envelope banner above Discover to choose from up to four hidden, unmatch
 ## Matched profiles and portraits
 
 Click a photo or View profile in Matches to reopen the full profile. You can also view a profile from its chat and return via Send a message. All 18 generated portraits are bundled locally in assets/potato-portraits.png, a 3-column by 6-row sprite sheet in profile order. No external image service is needed.
+
+## Detailed profiles
+
+Open Photos, prompts & more in Discover or View profile in Matches. Every potato has three photos, a captioned gallery, lifestyle facts, multiple prompt answers, and a unique three-option poll. Votes are local preferences, not simulated public percentages, and persist in browser storage. Photo sheets and profile-details.js are bundled with the site. Detail and photo quality intentionally vary by personality.
