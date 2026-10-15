@@ -437,6 +437,13 @@ let saved;try{saved=JSON.parse(localStorage.getItem('spud-v1'));}catch{}
 let index=Number.isInteger(saved?.index)&&saved.index>=0?saved.index:0;
 let matches=Array.isArray(saved?.matches)?saved.matches.filter(i=>Number.isInteger(i)&&i>=0&&i<profiles.length):[];
 let history=[];
+const validProfile=id=>Number.isInteger(id)&&id>=0&&id<profiles.length;
+let admirer={
+ seen:Array.isArray(saved?.admirer?.seen)?saved.admirer.seen.filter(validProfile):[],
+ choices:Array.isArray(saved?.admirer?.choices)?[...new Set(saved.admirer.choices.filter(validProfile))].slice(0,4):[],
+ selected:validProfile(saved?.admirer?.selected)?saved.admirer.selected:null
+};
+if(!admirer.choices.includes(admirer.selected))admirer.selected=null;
 let chats={};
 for(const id of matches){
  const messages=saved?.chats?.[id];
@@ -444,7 +451,7 @@ for(const id of matches){
 }
 let activeChat=null;
 const $=id=>document.getElementById(id);
-function persist(){try{localStorage.setItem('spud-v1',JSON.stringify({index,matches,chats}));}catch{}}
+function persist(){try{localStorage.setItem('spud-v1',JSON.stringify({index,matches,chats,admirer}));}catch{}}
 function render(){const p=profiles[index%profiles.length];$('name').textContent=`${p.name}, ${p.age}`;$('location').textContent='⌁ '+p.place;$('bio').textContent=p.bio;$('profile-prompt').textContent=p.prompt;$('profile-answer').textContent=p.answer;$('potato').style.filter=`hue-rotate(${p.color}deg)`;$('tags').replaceChildren(...p.tags.map(t=>{const s=document.createElement('span');s.textContent=t;return s;}));$('count').textContent=matches.length;$('undo').disabled=!history.length;}
 function renderMatches(){$('empty').hidden=matches.length>0;$('match-list').replaceChildren(...matches.map(i=>{const p=profiles[i],el=document.createElement('article');el.className='match-item';const icon=document.createElement('div');icon.textContent='🥔';icon.style.fontSize='40px';const name=document.createElement('h3');name.textContent=`${p.name}, ${p.age}`;const info=document.createElement('p');info.textContent=p.bio;const chat=document.createElement('button');chat.className='chat-button';chat.textContent='Say hello 💬';chat.setAttribute('aria-label',`Chat with ${p.name}`);chat.onclick=()=>openChat(i);el.append(icon,name,info,chat);return el;}));}
 function swipe(liked){const id=index%profiles.length;history.push({index,matches:[...matches]});if(liked&&!matches.includes(id)){matches.push(id);$('match-message').textContent=`${profiles[id].name} likes you too. Looks like something good is growing.`;$('match-dialog').showModal();}index++;persist();render();$('status').textContent=liked?'A little love planted.':'On to the next spud.';}
@@ -452,7 +459,7 @@ $('pass').onclick=()=>swipe(false);$('like').onclick=()=>swipe(true);$('undo').o
 $('keep').onclick=()=>$('match-dialog').close();
 function tab(discover){$('discover').classList.toggle('hidden',!discover);$('matches').classList.toggle('hidden',discover);$('discover-tab').classList.toggle('active',discover);$('matches-tab').classList.toggle('active',!discover);if(!discover)renderMatches();}
 $('discover-tab').onclick=()=>tab(true);$('matches-tab').onclick=()=>tab(false);
-document.addEventListener('keydown',e=>{if($('match-dialog').open||$('discover').classList.contains('hidden')||e.target.tagName==='BUTTON')return;if(e.key==='ArrowLeft')swipe(false);if(e.key==='ArrowRight')swipe(true);});
+document.addEventListener('keydown',e=>{if($('admirer-dialog').open||$('chat-dialog').open||$('match-dialog').open||$('discover').classList.contains('hidden')||e.target.tagName==='BUTTON')return;if(e.key==='ArrowLeft')swipe(false);if(e.key==='ArrowRight')swipe(true);});
 let touchX=null;$('card').addEventListener('touchstart',e=>{touchX=e.changedTouches[0].clientX;},{passive:true});$('card').addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>65)swipe(dx>0);touchX=null;},{passive:true});render();
 
 function openChat(id){
@@ -486,3 +493,41 @@ $('chat-form').addEventListener('submit',e=>{
  $('chat-input').value='';persist();renderChat();$('chat-input').focus();
 });
 $('chat-close').onclick=()=>$('chat-dialog').close();
+
+function openAdmirer(){
+ admirer.choices=admirer.choices.filter(id=>!matches.includes(id)&&!admirer.seen.includes(id));
+ if(!admirer.choices.includes(admirer.selected))admirer.selected=null;
+ if(!admirer.choices.length){
+  const pool=profiles.map((_,id)=>id).filter(id=>!matches.includes(id)&&!admirer.seen.includes(id));
+  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+  admirer.choices=pool.slice(0,4);
+ }
+ persist();renderAdmirer();$('admirer-dialog').showModal();
+}
+function renderAdmirer(){
+ const revealed=admirer.selected!==null;
+ $('admirer-choices').hidden=revealed;
+ $('admirer-choices').classList.toggle('hidden',revealed);
+ $('admirer-reveal').hidden=!revealed;
+ $('admirer-status').textContent=!admirer.choices.length?'You’ve met every secret admirer in this patch. Keep exploring your matches!':'';
+ $('admirer-choices').replaceChildren(...admirer.choices.map((id,i)=>{
+  const card=document.createElement('button');card.className='admirer-card';
+  card.setAttribute('aria-label',`Reveal hidden admirer ${i+1}`);
+  const heart=document.createElement('span');heart.textContent='♥';heart.setAttribute('aria-hidden','true');
+  const label=document.createElement('small');label.textContent=`Mystery spud ${i+1}`;
+  card.append(heart,label);card.onclick=()=>{admirer.selected=id;persist();renderAdmirer();$('admirer-like').focus();};return card;
+ }));
+ if(revealed){const p=profiles[admirer.selected];$('admirer-name').textContent=`${p.name}, ${p.age}`;$('admirer-bio').textContent=p.bio;$('admirer-prompt').textContent=`${p.prompt}: ${p.answer}`;}
+}
+function finishAdmirer(liked){
+ const id=admirer.selected;if(id===null)return;
+ if(!admirer.seen.includes(id))admirer.seen.push(id);
+ if(liked&&!matches.includes(id)){matches.push(id);history=[];}
+ admirer.selected=null;admirer.choices=[];persist();render();renderMatches();$('admirer-dialog').close();
+ if(liked){tab(false);openChat(id);}
+ else $('status').textContent='Mystery solved. Your next spark is still out there.';
+}
+$('admirer-open').onclick=openAdmirer;
+$('admirer-close').onclick=()=>$('admirer-dialog').close();
+$('admirer-like').onclick=()=>finishAdmirer(true);
+$('admirer-pass').onclick=()=>finishAdmirer(false);
