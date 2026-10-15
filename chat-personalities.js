@@ -1,4 +1,4 @@
-// Scripted voices follow the stable profile order.
+// Stable profile order: append only.
 const chatPersonalities = [
   {
     "hello": "Hey sunshine!",
@@ -466,6 +466,162 @@ const chatPersonalities = [
       "A neighborhood kid recently informed me our carrots were “a bit weird but in a good way.”",
       "I’d let you have the last tomato. Do not tell the allotment committee.",
       "What’s something you care enough about to show up for?"
+    ]
+  },
+  {
+    "hello": "Hey, lovely to hear from you.",
+    "question": "What’s a tiny thing you’ve grown attached to lately?",
+    "pets": "Noodle is a dachshund with the confidence of a much taller dog.",
+    "petQuestion": "Any animals in your life?",
+    "work": "I was at the flower market before sunrise. The dahlias were showing off.",
+    "workStory": "I was at the flower market before sunrise. The dahlias were showing off.",
+    "intentions": "A slow, steady relationship. I like it when we can say what we mean.",
+    "values": "What matters to you in a relationship?",
+    "music": "Adrianne Lenker · Soul Sundays. What are you listening to?",
+    "musicStory": "Send me a song that feels like your week.",
+    "hobby": "Early markets · Plant collector. What’s a tiny thing you’ve grown attached to lately?",
+    "support": "That sounds rough. Do you want to talk about it, or would a distraction help?",
+    "flirt": "You’ve made me smile at my phone. Very subtle of me.",
+    "flirtMore": "Someone bringing back the mug I left at their place, with tea already in it.",
+    "dateMore": "Let’s walk Noodle, then find a cafe with outdoor tables.",
+    "foodMore": "What meal feels like home to you?",
+    "favorite": "What do you love most about it?",
+    "poll": "What made you pick that?",
+    "replies": [
+      "I was at the flower market before sunrise. The dahlias were showing off.",
+      "Making a supermarket bouquet look like you planned three days ahead.",
+      "Walk Noodle, cook something lemony, fall asleep halfway through a film.",
+      "What’s a tiny thing you’ve grown attached to lately?"
+    ]
+  },
+  {
+    "hello": "Hey, lovely to hear from you.",
+    "question": "What meal reminds you of home?",
+    "pets": "Olive is a black cat who considers my shift schedule a personal insult.",
+    "petQuestion": "Any animals in your life?",
+    "work": "A passenger once asked if the ferry stopped at the lighthouse. I admired the ambition.",
+    "workStory": "A passenger once asked if the ferry stopped at the lighthouse. I admired the ambition.",
+    "intentions": "Something real, without rushing. I like it when we can say what we mean.",
+    "values": "What matters to you in a relationship?",
+    "music": "Khruangbin · Old Italian records. What are you listening to?",
+    "musicStory": "Send me a song that feels like your week.",
+    "hobby": "Shift work · Loves the sea. What meal reminds you of home?",
+    "support": "That sounds rough. Do you want to talk about it, or would a distraction help?",
+    "flirt": "You’ve made me smile at my phone. Very subtle of me.",
+    "flirtMore": "Being able to change your mind without making it somebody else’s fault.",
+    "dateMore": "Harbor walk and lunch? I can offer strong opinions about bread.",
+    "foodMore": "What meal feels like home to you?",
+    "favorite": "What do you love most about it?",
+    "poll": "What made you pick that?",
+    "replies": [
+      "A passenger once asked if the ferry stopped at the lighthouse. I admired the ambition.",
+      "He’ll say “just a little lunch” and use every pan in the house.",
+      "Tell me what you want. I’m good at knots, not at reading minds.",
+      "What meal reminds you of home?"
+    ]
+  },
+  {
+    "hello": "Hey, lovely to hear from you.",
+    "question": "What’s an opinion you hold for a completely trivial reason?",
+    "pets": "Toast is a retired greyhound. Retirement is mostly horizontal.",
+    "petQuestion": "Any animals in your life?",
+    "work": "I found a century-old complaint about noisy neighbors. Some things are eternal.",
+    "workStory": "I found a century-old complaint about noisy neighbors. Some things are eternal.",
+    "intentions": "Long-term partnership. I like it when we can say what we mean.",
+    "values": "What matters to you in a relationship?",
+    "music": "Joni Mitchell · Instrumental jazz. What are you listening to?",
+    "musicStory": "Send me a song that feels like your week.",
+    "hobby": "Quiet evenings · Competitive puzzles. What’s an opinion you hold for a completely trivial reason?",
+    "support": "That sounds rough. Do you want to talk about it, or would a distraction help?",
+    "flirt": "You’ve made me smile at my phone. Very subtle of me.",
+    "flirtMore": "Knowing when to stop talking and when to ask one more question.",
+    "dateMore": "Museum, then cake. We can silently judge the gift-shop prices together.",
+    "foodMore": "What meal feels like home to you?",
+    "favorite": "What do you love most about it?",
+    "poll": "What made you pick that?",
+    "replies": [
+      "I found a century-old complaint about noisy neighbors. Some things are eternal.",
+      "Bookshelves arranged entirely by color. How do you find anything?",
+      "People who can disagree without turning it into a courtroom.",
+      "What’s an opinion you hold for a completely trivial reason?"
+    ]
+  },
+  {
+    "hello": "hey!",
+    "question": "what’s something you’re really bad at but still enjoy?",
+    "pets": "waffle is tiny and has already won every argument in this house",
+    "petQuestion": "Any animals in your life?",
+    "work": "spent twenty minutes explaining a climbing route then fell off the first hold",
+    "workStory": "spent twenty minutes explaining a climbing route then fell off the first hold",
+    "intentions": "See what happens, honestly. I like it when we can say what we mean.",
+    "values": "What matters to you in a relationship?",
+    "music": "Pop punk · Whatever’s loud. What are you listening to?",
+    "musicStory": "Send me a song that feels like your week.",
+    "hobby": "Late riser · Climbing beginner. what’s something you’re really bad at but still enjoy?",
+    "support": "That sounds rough. Do you want to talk about it, or would a distraction help?",
+    "flirt": "okay now i’m grinning",
+    "flirtMore": "optimism. not upper body apparently.",
+    "dateMore": "climbing then chips? no pressure to be good. i’m certainly not",
+    "foodMore": "What meal feels like home to you?",
+    "favorite": "What do you love most about it?",
+    "poll": "What made you pick that?",
+    "replies": [
+      "spent twenty minutes explaining a climbing route then fell off the first hold",
+      "something cheap with snacks",
+      "waffle knows her name. i think. she also answers to the fridge.",
+      "what’s something you’re really bad at but still enjoy?"
+    ]
+  },
+  {
+    "hello": "Hey, lovely to hear from you.",
+    "question": "What song deserves a better reputation?",
+    "pets": "Chai and Clove are parakeets. They consider all microphones shared property.",
+    "petQuestion": "Any animals in your life?",
+    "work": "A live guest’s dog once stole the entire interview. Our most popular segment.",
+    "workStory": "A live guest’s dog once stole the entire interview. Our most popular segment.",
+    "intentions": "An intentional relationship. I like it when we can say what we mean.",
+    "values": "What matters to you in a relationship?",
+    "music": "Arooj Aftab · Disco edits. What are you listening to?",
+    "musicStory": "Send me a song that feels like your week.",
+    "hobby": "Family dinners · Night owl. What song deserves a better reputation?",
+    "support": "That sounds rough. Do you want to talk about it, or would a distraction help?",
+    "flirt": "You’ve made me smile at my phone. Very subtle of me.",
+    "flirtMore": "Making your favorite dish twice: once to learn it, once to get it right.",
+    "dateMore": "A food market and a shared lunch. Tell me what you’ve never tried.",
+    "foodMore": "What meal feels like home to you?",
+    "favorite": "What do you love most about it?",
+    "poll": "What made you pick that?",
+    "replies": [
+      "A live guest’s dog once stole the entire interview. Our most popular segment.",
+      "Have you eaten? Do you want more? Are you absolutely sure?",
+      "Chemistry is wonderful. Consistency is sexier.",
+      "What song deserves a better reputation?"
+    ]
+  },
+  {
+    "hello": "Hey, lovely to hear from you.",
+    "question": "What’s something handmade you’ve kept for years?",
+    "pets": "Buttons is an old sheepdog. We take walks at his pace, which is mainly “sniff.”",
+    "petQuestion": "Any animals in your life?",
+    "work": "My students made twelve bowls today. Eleven intentional, one a very sudden plate.",
+    "workStory": "My students made twelve bowls today. Eleven intentional, one a very sudden plate.",
+    "intentions": "A life partner. I like it when we can say what we mean.",
+    "values": "What matters to you in a relationship?",
+    "music": "Bill Withers · Folk radio. What are you listening to?",
+    "musicStory": "Send me a song that feels like your week.",
+    "hobby": "Early walks · Studio afternoons. What’s something handmade you’ve kept for years?",
+    "support": "That sounds rough. Do you want to talk about it, or would a distraction help?",
+    "flirt": "You’ve made me smile at my phone. Very subtle of me.",
+    "flirtMore": "When a student makes something wonky and decides to love it anyway.",
+    "dateMore": "Try a little pottery? We’ll make terrible bowls and have a good laugh.",
+    "foodMore": "What meal feels like home to you?",
+    "favorite": "What do you love most about it?",
+    "poll": "What made you pick that?",
+    "replies": [
+      "My students made twelve bowls today. Eleven intentional, one a very sudden plate.",
+      "Being easygoing isn’t the same as never saying what you need.",
+      "How you take your tea. Then I’ll make the mug to match.",
+      "What’s something handmade you’ve kept for years?"
     ]
   }
 ];

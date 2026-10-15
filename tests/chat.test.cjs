@@ -7,8 +7,8 @@ for(const file of ['profile-details.js','chat-personalities.js','chat-engine.js'
 const data=fs.readFileSync('app.js','utf8').split('let saved;try')[0];vm.runInContext(data,context);
 const profiles=vm.runInContext('profiles',context),engine=vm.runInContext('SpudChat',context);
 function send(profile,history,text){history.push({sender:'me',text});const result=engine.reply(profile,history,text);history.push({sender:'potato',text:result});return result;}
-test('all 18 personalities handle supported topics with complete replies',()=>{
- assert.equal(profiles.length,18);
+test('all personalities handle supported topics with complete replies',()=>{
+ assert.equal(profiles.length,24);
  for(const p of profiles){const h=[];for(const text of ['hello','Do you have pets?','What is your job?','What music do you like?','What are your hobbies?','What are you looking for?','Coffee date?','Favorite dinner?','You are cute','I had a rough day','yeah','something unexpected','goodnight']){
   const answer=send(p,h,text);assert.equal(typeof answer,'string',p.name);assert(answer.length>0,p.name);assert(!answer.includes('undefined'),p.name);
  }}
@@ -34,7 +34,7 @@ test('boundaries override flirting and bad-day replies acknowledge the mood',()=
  assert.match(send(profiles[0],[],'I am sad today'),/rough|pressure|sorry/);
 });
 test('personality differences remain visible for the same topics',()=>{
- const answers=profiles.map(p=>send(p,[],'Tell me about your job'));assert.equal(new Set(answers).size,18);
+ const answers=profiles.map(p=>send(p,[],'Tell me about your job'));assert.equal(new Set(answers).size,24);
  assert(send(profiles[6],[],'hello').length<send(profiles[11],[],'hello').length);
 });
 test('fallbacks vary, and poll choice is grounded in the selected option',()=>{

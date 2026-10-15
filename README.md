@@ -1,6 +1,6 @@
 # Spud 🥔
 
-A playful potato matchmaking demo with 18 illustrated profiles, likes, matches, undo, keyboard controls, and mobile swiping. Matches are saved in your browser. All matches are simulated; no account or backend is required.
+A playful potato matchmaking demo with 24 illustrated profiles, likes, matches, undo, keyboard controls, and mobile swiping. Matches are saved in your browser. All matches are simulated; no account or backend is required.
 
 ## Run
 
@@ -41,3 +41,7 @@ Chats run entirely in the browser without accounts, API keys, billing, or a back
 Discover skips matched potatoes, including after reload and matches made through profiles or Secret Admirer. When all potatoes are matched, an empty state links to Matches. Undo still reverses the most recent swipe. Run `node --test tests/*.test.cjs` for chat and discovery checks.
 
 Passes in Discover and Secret Admirer are saved and excluded from future cards and admirer rounds. Undo restores the latest Discover swipe, including a pass. Older Discover passes from before this feature were not stored and cannot be reconstructed.
+
+## Current discovery batch
+
+Discover and Secret Admirer temporarily show only the six new arrivals: Juniper, Nico, Cleo, Bix, Saffron, and Otis (indices 18–23). Original profiles remain accessible through existing matches and chats. Matches and passes still exclude new arrivals. When the batch is exhausted, the deck stays empty instead of returning to old profiles. Each newcomer has three generated photos in assets/potato-new-arrivals.png, with one character per row and portrait/friends/pet columns.

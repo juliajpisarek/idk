@@ -1,4 +1,4 @@
-// Index order matches app.js; append rather than reorder.
+// Stable profile order: append only.
 const profileDetails = [
   {
     "facts": {
@@ -857,6 +857,270 @@ const profileDetails = [
       {
         "kind": "life",
         "caption": "Turnip. Useless at weeding, exceptional at morale."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Florist",
+      "Looking for": "A slow, steady relationship",
+      "Relationship style": "Monogamy",
+      "Pets": "Dachshund, Noodle",
+      "Family plans": "Open to children",
+      "Habits": "Social drinker · Non-smoker",
+      "Daily life": "Early markets · Plant collector",
+      "On repeat": "Adrianne Lenker · Soul Sundays"
+    },
+    "prompts": [
+      {
+        "question": "My most specific skill",
+        "answer": "Making a supermarket bouquet look like you planned three days ahead."
+      },
+      {
+        "question": "A perfect ordinary evening",
+        "answer": "Walk Noodle, cook something lemony, fall asleep halfway through a film."
+      }
+    ],
+    "poll": {
+      "question": "Pick a first-date bouquet",
+      "options": [
+        "Wildflowers",
+        "Something dramatic",
+        "Actually, a houseplant"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Juniper, on a pretty ordinary day."
+      },
+      {
+        "kind": "friends",
+        "caption": "A picnic with the friends who patiently accept plants as birthday presents."
+      },
+      {
+        "kind": "life",
+        "caption": "Noodle: very short legs, exceptionally long opinions."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Ferry deckhand",
+      "Looking for": "Something real, without rushing",
+      "Relationship style": "Monogamy",
+      "Pets": "Black cat, Olive",
+      "Family plans": "Doesn’t want children",
+      "Habits": "Occasional beer · Non-smoker",
+      "Daily life": "Shift work · Loves the sea",
+      "On repeat": "Khruangbin · Old Italian records"
+    },
+    "prompts": [
+      {
+        "question": "My family would warn you",
+        "answer": "He’ll say “just a little lunch” and use every pan in the house."
+      },
+      {
+        "question": "The way to my heart",
+        "answer": "Tell me what you want. I’m good at knots, not at reading minds."
+      }
+    ],
+    "poll": {
+      "question": "Lunch by the harbor?",
+      "options": [
+        "Fresh bread and tomatoes",
+        "Fish and chips",
+        "A long, unnecessary detour"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Nico, on a pretty ordinary day."
+      },
+      {
+        "kind": "friends",
+        "caption": "My siblings helping with lunch. “Helping” is a generous description."
+      },
+      {
+        "kind": "life",
+        "caption": "Olive, supervising my one attempt to answer emails."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Archivist",
+      "Looking for": "Long-term partnership",
+      "Relationship style": "Monogamy",
+      "Pets": "Retired greyhound, Toast",
+      "Family plans": "Undecided",
+      "Habits": "Rarely drinks · Non-smoker",
+      "Daily life": "Quiet evenings · Competitive puzzles",
+      "On repeat": "Joni Mitchell · Instrumental jazz"
+    },
+    "prompts": [
+      {
+        "question": "My irrational grudge",
+        "answer": "Bookshelves arranged entirely by color. How do you find anything?"
+      },
+      {
+        "question": "I’ll make time for",
+        "answer": "People who can disagree without turning it into a courtroom."
+      }
+    ],
+    "poll": {
+      "question": "We have a rainy afternoon. Choose.",
+      "options": [
+        "Museum and cake",
+        "An unfairly difficult puzzle",
+        "A long bookshop browse"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Cleo, on a pretty ordinary day."
+      },
+      {
+        "kind": "friends",
+        "caption": "Board-game night. I lost, graciously according to exactly nobody."
+      },
+      {
+        "kind": "life",
+        "caption": "Toast, working tirelessly on another sixteen-hour nap."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Outdoor shop assistant",
+      "Looking for": "See what happens, honestly",
+      "Relationship style": "Monogamy",
+      "Pets": "Kitten, Waffle",
+      "Family plans": "Not sure yet",
+      "Habits": "Social drinker · Non-smoker",
+      "Daily life": "Late riser · Climbing beginner",
+      "On repeat": "Pop punk · Whatever’s loud"
+    },
+    "prompts": [
+      {
+        "question": "My ideal date",
+        "answer": "something cheap with snacks"
+      },
+      {
+        "question": "A recent achievement",
+        "answer": "waffle knows her name. i think. she also answers to the fridge."
+      }
+    ],
+    "poll": {
+      "question": "pick a questionable plan",
+      "options": [
+        "Climbing wall",
+        "Camping with actual pegs",
+        "Stay home with Waffle"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Bix, on a pretty ordinary day."
+      },
+      {
+        "kind": "friends",
+        "caption": "we brought three camping stoves and zero spoons"
+      },
+      {
+        "kind": "life",
+        "caption": "waffle. my entire camera roll now."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Community radio producer",
+      "Looking for": "An intentional relationship",
+      "Relationship style": "Monogamy",
+      "Pets": "Two parakeets, Chai and Clove",
+      "Family plans": "Open to discussing children",
+      "Habits": "Social drinker · Non-smoker",
+      "Daily life": "Family dinners · Night owl",
+      "On repeat": "Arooj Aftab · Disco edits"
+    },
+    "prompts": [
+      {
+        "question": "What my family will ask",
+        "answer": "Have you eaten? Do you want more? Are you absolutely sure?"
+      },
+      {
+        "question": "A belief I’ve changed",
+        "answer": "Chemistry is wonderful. Consistency is sexier."
+      }
+    ],
+    "poll": {
+      "question": "You get one radio request.",
+      "options": [
+        "A song for cooking",
+        "A song for dancing",
+        "A song for the last train"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Saffron, on a pretty ordinary day."
+      },
+      {
+        "kind": "friends",
+        "caption": "Family dinner: many opinions, very little chance of leaving hungry."
+      },
+      {
+        "kind": "life",
+        "caption": "Chai and Clove rehearsing for an interview nobody booked."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Ceramics teacher",
+      "Looking for": "A life partner",
+      "Relationship style": "Monogamy",
+      "Pets": "Old sheepdog, Buttons",
+      "Family plans": "Doesn’t want children",
+      "Habits": "Occasional cider · Non-smoker",
+      "Daily life": "Early walks · Studio afternoons",
+      "On repeat": "Bill Withers · Folk radio"
+    },
+    "prompts": [
+      {
+        "question": "A lesson that took too long",
+        "answer": "Being easygoing isn’t the same as never saying what you need."
+      },
+      {
+        "question": "Something I’ll remember",
+        "answer": "How you take your tea. Then I’ll make the mug to match."
+      }
+    ],
+    "poll": {
+      "question": "Choose a cozy afternoon",
+      "options": [
+        "Pottery workshop",
+        "Dog walk and cider",
+        "Bake a slightly wonky pie"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Otis, on a pretty ordinary day."
+      },
+      {
+        "kind": "friends",
+        "caption": "The workshop crew, arguing about whether my mug handles are “too handle-y.”"
+      },
+      {
+        "kind": "life",
+        "caption": "Buttons. Head of studio naps and quality control."
       }
     ]
   }

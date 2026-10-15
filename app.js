@@ -431,6 +431,150 @@ const profiles = [
       ],
       "bye": "Night! The compost and I will both still be here tomorrow."
     }
+  },
+  {
+    "name": "Juniper",
+    "age": 28,
+    "place": "Fernbank · 3 fields away",
+    "bio": "I can tell you why your houseplant is sulking, but I cannot keep a basil plant alive. Florist, enthusiastic walker, terrible parallel parker. Looking for someone who notices the seasons and remembers to text when they get home.",
+    "tags": [
+      "Flowers with dirt still on them",
+      "Long walks",
+      "Gentle teasing"
+    ],
+    "prompt": "A small thing I find romantic",
+    "answer": "Someone bringing back the mug I left at their place, with tea already in it.",
+    "color": 0,
+    "chat": {
+      "greeting": "What’s a tiny thing you’ve grown attached to lately?",
+      "date": "Let’s walk Noodle, then find a cafe with outdoor tables.",
+      "food": "A meal shared slowly sounds good to me. What do you love cooking?",
+      "replies": [
+        "I was at the flower market before sunrise. The dahlias were showing off.",
+        "What’s a tiny thing you’ve grown attached to lately?"
+      ],
+      "bye": "Goodnight. Let’s pick this up when you’re back."
+    }
+  },
+  {
+    "name": "Nico",
+    "age": 31,
+    "place": "Harbor Quarter · 6 fields away",
+    "bio": "Sea air, decent tomatoes, questionable dance moves. I work on ferries and will absolutely point out a boat to you, as though you have never seen one. My siblings say I’m a good cook and an unreliable source of weather forecasts.",
+    "tags": [
+      "Sea swims",
+      "Feeds everyone",
+      "Bad dancing"
+    ],
+    "prompt": "A green flag I notice",
+    "answer": "Being able to change your mind without making it somebody else’s fault.",
+    "color": 0,
+    "chat": {
+      "greeting": "What meal reminds you of home?",
+      "date": "Harbor walk and lunch? I can offer strong opinions about bread.",
+      "food": "A meal shared slowly sounds good to me. What do you love cooking?",
+      "replies": [
+        "A passenger once asked if the ferry stopped at the lighthouse. I admired the ambition.",
+        "What meal reminds you of home?"
+      ],
+      "bye": "Goodnight. Let’s pick this up when you’re back."
+    }
+  },
+  {
+    "name": "Cleo",
+    "age": 35,
+    "place": "Old Town · 2 fields away",
+    "bio": "Archivist. My job is keeping old things in order; my flat is an elaborate exception. Dry humor, warm socks, one retired greyhound. I’m not aloof, I just take a moment to decide whether a joke needs explaining.",
+    "tags": [
+      "Dry wit",
+      "Museum afternoons",
+      "Good socks"
+    ],
+    "prompt": "An unexpectedly attractive quality",
+    "answer": "Knowing when to stop talking and when to ask one more question.",
+    "color": 0,
+    "chat": {
+      "greeting": "What’s an opinion you hold for a completely trivial reason?",
+      "date": "Museum, then cake. We can silently judge the gift-shop prices together.",
+      "food": "A meal shared slowly sounds good to me. What do you love cooking?",
+      "replies": [
+        "I found a century-old complaint about noisy neighbors. Some things are eternal.",
+        "What’s an opinion you hold for a completely trivial reason?"
+      ],
+      "bye": "Goodnight. Let’s pick this up when you’re back."
+    }
+  },
+  {
+    "name": "Bix",
+    "age": 25,
+    "place": "Boulder Yard · 4 fields away",
+    "bio": "i climb. badly. got a kitten. also badly but we’re learning. looking for someone fun who will tell me if there’s chalk on my face before taking the picture. no summit selfies because i haven’t reached one",
+    "tags": [
+      "Climbing-ish",
+      "Kitten dad",
+      "Forgot the tent pegs"
+    ],
+    "prompt": "My greatest strength",
+    "answer": "optimism. not upper body apparently.",
+    "color": 0,
+    "chat": {
+      "greeting": "what’s something you’re really bad at but still enjoy?",
+      "date": "climbing then chips? no pressure to be good. i’m certainly not",
+      "food": "A meal shared slowly sounds good to me. What do you love cooking?",
+      "replies": [
+        "spent twenty minutes explaining a climbing route then fell off the first hold",
+        "what’s something you’re really bad at but still enjoy?"
+      ],
+      "bye": "Goodnight. Let’s pick this up when you’re back."
+    }
+  },
+  {
+    "name": "Saffron",
+    "age": 32,
+    "place": "Spice Lane · 5 fields away",
+    "bio": "I produce community radio, cook for too many people, and have two birds who think every call is their interview. Big earrings, careful listening, strong feelings about underseasoned soup. Looking for wit, warmth, and a little follow-through.",
+    "tags": [
+      "Radio nerd",
+      "Family dinners",
+      "Spice drawer alphabetized"
+    ],
+    "prompt": "My love language",
+    "answer": "Making your favorite dish twice: once to learn it, once to get it right.",
+    "color": 0,
+    "chat": {
+      "greeting": "What song deserves a better reputation?",
+      "date": "A food market and a shared lunch. Tell me what you’ve never tried.",
+      "food": "A meal shared slowly sounds good to me. What do you love cooking?",
+      "replies": [
+        "A live guest’s dog once stole the entire interview. Our most popular segment.",
+        "What song deserves a better reputation?"
+      ],
+      "bye": "Goodnight. Let’s pick this up when you’re back."
+    }
+  },
+  {
+    "name": "Otis",
+    "age": 37,
+    "place": "Kiln Row · 3 fields away",
+    "bio": "Makes mugs for a living. Still drinks from the chipped one. Patient with clay, less patient with self-checkouts. I’ve built a quiet life I like; I’m looking for someone to share it with, not someone to rescue me from it.",
+    "tags": [
+      "Clay-covered sleeves",
+      "Old dog walks",
+      "Quiet confidence"
+    ],
+    "prompt": "The best part of my week",
+    "answer": "When a student makes something wonky and decides to love it anyway.",
+    "color": 0,
+    "chat": {
+      "greeting": "What’s something handmade you’ve kept for years?",
+      "date": "Try a little pottery? We’ll make terrible bowls and have a good laugh.",
+      "food": "A meal shared slowly sounds good to me. What do you love cooking?",
+      "replies": [
+        "My students made twelve bowls today. Eleven intentional, one a very sudden plate.",
+        "What’s something handmade you’ve kept for years?"
+      ],
+      "bye": "Goodnight. Let’s pick this up when you’re back."
+    }
   }
 ];
 profiles.forEach((profile,id)=>Object.assign(profile,profileDetails[id],{conversation:chatPersonalities[id]}));
@@ -460,10 +604,13 @@ for(const id of matches){
 let activeChat=null;
 const $=id=>document.getElementById(id);
 function persist(){try{localStorage.setItem('spud-v1',JSON.stringify({index,matches,passed,chats,admirer,pollVotes}));}catch{}}
+// Temporarily show only the newest batch; old matches remain available.
+const discoveryBatchStart=18;
+function isFreshProfile(id){return id>=discoveryBatchStart;}
 function currentDiscoverId(){
  for(let offset=0;offset<profiles.length;offset++){
   const candidate=(index+offset)%profiles.length;
-  if(!matches.includes(candidate)&&!passed.includes(candidate)){
+  if(isFreshProfile(candidate)&&!matches.includes(candidate)&&!passed.includes(candidate)){
    if(offset){index+=offset;persist();}
    return candidate;
   }
@@ -517,10 +664,10 @@ $('chat-form').addEventListener('submit',e=>{e.preventDefault();sendMessage($('c
 $('chat-close').onclick=()=>$('chat-dialog').close();
 
 function openAdmirer(){
- admirer.choices=admirer.choices.filter(id=>!matches.includes(id)&&!passed.includes(id)&&!admirer.seen.includes(id));
+ admirer.choices=admirer.choices.filter(id=>isFreshProfile(id)&&!matches.includes(id)&&!passed.includes(id)&&!admirer.seen.includes(id));
  if(!admirer.choices.includes(admirer.selected))admirer.selected=null;
  if(!admirer.choices.length){
-  const pool=profiles.map((_,id)=>id).filter(id=>!matches.includes(id)&&!passed.includes(id)&&!admirer.seen.includes(id));
+  const pool=profiles.map((_,id)=>id).filter(id=>isFreshProfile(id)&&!matches.includes(id)&&!passed.includes(id)&&!admirer.seen.includes(id));
   for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
   admirer.choices=pool.slice(0,4);
  }
@@ -557,7 +704,8 @@ $('admirer-pass').onclick=()=>finishAdmirer(false);
 
 function setPortrait(el,id){
  el.classList.add('portrait');
- el.style.backgroundPosition=`${(id%3)*50}% ${Math.floor(id/3)*20}%`;
+ el.classList.toggle('fresh-photo',isFreshProfile(id));
+ el.style.backgroundPosition=isFreshProfile(id)?`0% ${(id-discoveryBatchStart)*20}%`:`${(id%3)*50}% ${Math.floor(id/3)*20}%`;
  el.setAttribute('aria-label',`Portrait of ${profiles[id].name}`);
 }
 function openProfile(id){
@@ -582,12 +730,14 @@ function showProfilePhoto(id,position){
  const photo=p.photos[profilePhotoIndex],image=$('full-profile-photo');
  image.classList.remove('photo-friends','photo-life');setPortrait(image,id);
  if(photo.kind!=='portrait')image.classList.add(`photo-${photo.kind}`);
+ if(isFreshProfile(id))image.style.backgroundPosition=`${profilePhotoIndex*50}% ${(id-discoveryBatchStart)*20}%`;
  image.setAttribute('aria-label',`${p.name}: ${photo.caption}`);
  $('photo-caption').textContent=photo.caption;
  $('photo-count').textContent=`${profilePhotoIndex+1} / ${p.photos.length}`;
  $('photo-thumbs').replaceChildren(...p.photos.map((photo,i)=>{
   const button=document.createElement('button');button.className='photo-thumb';setPortrait(button,id);
   if(photo.kind!=='portrait')button.classList.add(`photo-${photo.kind}`);
+  if(isFreshProfile(id))button.style.backgroundPosition=`${i*50}% ${(id-discoveryBatchStart)*20}%`;
   button.setAttribute('aria-label',`Photo ${i+1}: ${photo.caption}`);
   button.setAttribute('aria-pressed',String(i===profilePhotoIndex));
   button.onclick=()=>showProfilePhoto(id,i);return button;
