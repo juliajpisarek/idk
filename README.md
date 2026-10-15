@@ -39,3 +39,5 @@ Chats run entirely in the browser without accounts, API keys, billing, or a back
 ## Discovery
 
 Discover skips matched potatoes, including after reload and matches made through profiles or Secret Admirer. When all potatoes are matched, an empty state links to Matches. Undo still reverses the most recent swipe. Run `node --test tests/*.test.cjs` for chat and discovery checks.
+
+Passes in Discover and Secret Admirer are saved and excluded from future cards and admirer rounds. Undo restores the latest Discover swipe, including a pass. Older Discover passes from before this feature were not stored and cannot be reconstructed.

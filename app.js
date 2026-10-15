@@ -445,6 +445,7 @@ let profilePhotoIndex=0;
 let viewedProfile=null;
 let history=[];
 const validProfile=id=>Number.isInteger(id)&&id>=0&&id<profiles.length;
+let passed=[...new Set([...(Array.isArray(saved?.passed)?saved.passed:[]),...(Array.isArray(saved?.admirer?.seen)?saved.admirer.seen:[])].filter(id=>validProfile(id)&&!matches.includes(id)))];
 let admirer={
  seen:Array.isArray(saved?.admirer?.seen)?saved.admirer.seen.filter(validProfile):[],
  choices:Array.isArray(saved?.admirer?.choices)?[...new Set(saved.admirer.choices.filter(validProfile))].slice(0,4):[],
@@ -458,11 +459,11 @@ for(const id of matches){
 }
 let activeChat=null;
 const $=id=>document.getElementById(id);
-function persist(){try{localStorage.setItem('spud-v1',JSON.stringify({index,matches,chats,admirer,pollVotes}));}catch{}}
+function persist(){try{localStorage.setItem('spud-v1',JSON.stringify({index,matches,passed,chats,admirer,pollVotes}));}catch{}}
 function currentDiscoverId(){
  for(let offset=0;offset<profiles.length;offset++){
   const candidate=(index+offset)%profiles.length;
-  if(!matches.includes(candidate)){
+  if(!matches.includes(candidate)&&!passed.includes(candidate)){
    if(offset){index+=offset;persist();}
    return candidate;
   }
@@ -482,8 +483,8 @@ function render(){
  const p=profiles[id];
 $('name').textContent=`${p.name}, ${p.age}`;$('location').textContent='⌁ '+p.place;$('bio').textContent=p.bio;$('profile-prompt').textContent=p.prompt;$('profile-answer').textContent=p.answer;setPortrait($('potato'),index%profiles.length);$('tags').replaceChildren(...p.tags.map(t=>{const s=document.createElement('span');s.textContent=t;return s;}));$('count').textContent=matches.length;}
 function renderMatches(){$('empty').hidden=matches.length>0;$('match-list').replaceChildren(...matches.map(i=>{const p=profiles[i],el=document.createElement('article');el.className='match-item';const icon=document.createElement('button');icon.className='match-photo';icon.setAttribute('aria-label',`View ${p.name}’s profile`);setPortrait(icon,i);icon.onclick=()=>openProfile(i);const name=document.createElement('h3');name.textContent=`${p.name}, ${p.age}`;const info=document.createElement('p');info.textContent=p.bio;const chat=document.createElement('button');chat.className='chat-button';chat.textContent='Say hello 💬';chat.setAttribute('aria-label',`Chat with ${p.name}`);chat.onclick=()=>openChat(i);const view=document.createElement('button');view.className='view-profile';view.textContent='View profile';view.onclick=()=>openProfile(i);el.append(icon,name,info,chat,view);return el;}));}
-function swipe(liked){const id=currentDiscoverId();if(id===null)return;history.push({index,matches:[...matches]});if(liked&&!matches.includes(id)){matches.push(id);$('match-message').textContent=`${profiles[id].name} likes you too. Looks like something good is growing.`;$('match-dialog').showModal();}index++;persist();render();$('status').textContent=liked?'A little love planted.':'On to the next spud.';}
-$('pass').onclick=()=>swipe(false);$('like').onclick=()=>swipe(true);$('undo').onclick=()=>{const last=history.pop();if(!last)return;index=last.index;matches=last.matches;persist();render();$('status').textContent='Last swipe undone.';};
+function swipe(liked){const id=currentDiscoverId();if(id===null)return;history.push({index,matches:[...matches],passed:[...passed]});if(liked&&!matches.includes(id)){matches.push(id);$('match-message').textContent=`${profiles[id].name} likes you too. Looks like something good is growing.`;$('match-dialog').showModal();}if(!liked&&!passed.includes(id))passed.push(id);index++;persist();render();$('status').textContent=liked?'A little love planted.':'On to the next spud.';}
+$('pass').onclick=()=>swipe(false);$('like').onclick=()=>swipe(true);$('undo').onclick=()=>{const last=history.pop();if(!last)return;index=last.index;matches=last.matches;passed=last.passed;persist();render();$('status').textContent='Last swipe undone.';};
 $('keep').onclick=()=>$('match-dialog').close();
 function tab(discover){$('discover').classList.toggle('hidden',!discover);$('matches').classList.toggle('hidden',discover);$('discover-tab').classList.toggle('active',discover);$('matches-tab').classList.toggle('active',!discover);if(!discover)renderMatches();}
 $('discover-tab').onclick=()=>tab(true);$('matches-tab').onclick=()=>tab(false);
@@ -516,10 +517,10 @@ $('chat-form').addEventListener('submit',e=>{e.preventDefault();sendMessage($('c
 $('chat-close').onclick=()=>$('chat-dialog').close();
 
 function openAdmirer(){
- admirer.choices=admirer.choices.filter(id=>!matches.includes(id)&&!admirer.seen.includes(id));
+ admirer.choices=admirer.choices.filter(id=>!matches.includes(id)&&!passed.includes(id)&&!admirer.seen.includes(id));
  if(!admirer.choices.includes(admirer.selected))admirer.selected=null;
  if(!admirer.choices.length){
-  const pool=profiles.map((_,id)=>id).filter(id=>!matches.includes(id)&&!admirer.seen.includes(id));
+  const pool=profiles.map((_,id)=>id).filter(id=>!matches.includes(id)&&!passed.includes(id)&&!admirer.seen.includes(id));
   for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
   admirer.choices=pool.slice(0,4);
  }
@@ -544,7 +545,8 @@ function finishAdmirer(liked){
  const id=admirer.selected;if(id===null)return;
  if(!admirer.seen.includes(id))admirer.seen.push(id);
  if(liked&&!matches.includes(id)){matches.push(id);history=[];}
- admirer.selected=null;admirer.choices=[];persist();render();renderMatches();$('admirer-dialog').close();
+ if(!liked&&!passed.includes(id))passed.push(id);
+ history=[];admirer.selected=null;admirer.choices=[];persist();render();renderMatches();$('admirer-dialog').close();
  if(liked){tab(false);openChat(id);}
  else $('status').textContent='Mystery solved. Your next spark is still out there.';
 }

@@ -27,3 +27,16 @@ test('when everyone is matched, Discover is empty and all swipe paths are safe',
 test('matching the final potato shows the empty state; undo restores that profile',()=>{
  const app=boot({index:17,matches:Array.from({length:17},(_,i)=>i)});app.ctx.swipe(true);assert.equal(app.ctx.currentDiscoverId(),null);app.nodes.get('undo').onclick();assert.equal(app.ctx.currentDiscoverId(),17);assert(!app.nodes.get('card').classList.contains('hidden'));
 });
+test('passes stay excluded through wraparound and reload; undo restores the last pass',()=>{
+ const app=boot({index:17,matches:[1],passed:[0]});app.ctx.swipe(false);assert(app.state().passed.includes(17));assert.equal(app.ctx.currentDiscoverId(),2);
+ const reload=boot(app.state());assert.equal(reload.ctx.currentDiscoverId(),2);app.nodes.get('undo').onclick();assert.equal(app.ctx.currentDiscoverId(),17);assert(!app.state().passed.includes(17));assert(app.state().passed.includes(0));
+});
+test('passing everyone exhausts Discover without repeating any profiles',()=>{
+ const app=boot();const seen=new Set();for(let i=0;i<18;i++){const id=app.ctx.currentDiscoverId();assert(!seen.has(id));seen.add(id);app.ctx.swipe(false);}assert.equal(app.ctx.currentDiscoverId(),null);assert.equal(app.state().passed.length,18);assert(!app.nodes.get('discovery-empty').classList.contains('hidden'));assert.equal(boot(app.state()).ctx.currentDiscoverId(),null);
+});
+test('admirer choices exclude passed cards and an admirer rejection excludes Discover too',()=>{
+ const app=boot({passed:[0,1,2]});app.ctx.openAdmirer();assert(app.state().admirer.choices.every(id=>![0,1,2].includes(id)));const id=app.state().admirer.choices[0];vm.runInContext(`admirer.selected=${id};index=${id};`,app.ctx);app.ctx.finishAdmirer(false);assert(app.state().passed.includes(id));assert.notEqual(app.ctx.currentDiscoverId(),id);
+});
+test('old saved data still works and old admirer rejections are retained',()=>{
+ const app=boot({index:0,matches:[1],admirer:{seen:[0,1]}});assert.equal(app.ctx.currentDiscoverId(),2);assert.equal(app.nodes.get('count').textContent,1);
+});
