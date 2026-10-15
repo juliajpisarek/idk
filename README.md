@@ -31,3 +31,7 @@ Click a photo or View profile in Matches to reopen the full profile. You can als
 ## Detailed profiles
 
 Open Photos, prompts & more in Discover or View profile in Matches. Every potato has three photos, a captioned gallery, lifestyle facts, multiple prompt answers, and a unique three-option poll. Votes are local preferences, not simulated public percentages, and persist in browser storage. Photo sheets and profile-details.js are bundled with the site. Detail and photo quality intentionally vary by personality.
+
+## Free personality chats
+
+Chats run entirely in the browser without accounts, API keys, billing, or a backend. chat-engine.js selects topic-aware scripted responses from chat-personalities.js and each profile. It handles greetings, pets, work, music, hobbies, relationship intentions, dates, food, compliments, low moods, and boundaries. Short follow-ups reuse the prior topic. Replies avoid recently used lines where alternatives exist. Names introduced with “Call me Alex” and favorites such as “My favorite food is pizza” can be recalled from the saved conversation; memory stays separate per potato. This is limited scripted conversation, not general-purpose AI. Run `node --test tests/chat.test.cjs` for the conversation checks.
