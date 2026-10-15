@@ -452,21 +452,21 @@ for(const id of matches){
 let activeChat=null;
 const $=id=>document.getElementById(id);
 function persist(){try{localStorage.setItem('spud-v1',JSON.stringify({index,matches,chats,admirer}));}catch{}}
-function render(){const p=profiles[index%profiles.length];$('name').textContent=`${p.name}, ${p.age}`;$('location').textContent='⌁ '+p.place;$('bio').textContent=p.bio;$('profile-prompt').textContent=p.prompt;$('profile-answer').textContent=p.answer;$('potato').style.filter=`hue-rotate(${p.color}deg)`;$('tags').replaceChildren(...p.tags.map(t=>{const s=document.createElement('span');s.textContent=t;return s;}));$('count').textContent=matches.length;$('undo').disabled=!history.length;}
-function renderMatches(){$('empty').hidden=matches.length>0;$('match-list').replaceChildren(...matches.map(i=>{const p=profiles[i],el=document.createElement('article');el.className='match-item';const icon=document.createElement('div');icon.textContent='🥔';icon.style.fontSize='40px';const name=document.createElement('h3');name.textContent=`${p.name}, ${p.age}`;const info=document.createElement('p');info.textContent=p.bio;const chat=document.createElement('button');chat.className='chat-button';chat.textContent='Say hello 💬';chat.setAttribute('aria-label',`Chat with ${p.name}`);chat.onclick=()=>openChat(i);el.append(icon,name,info,chat);return el;}));}
+function render(){const p=profiles[index%profiles.length];$('name').textContent=`${p.name}, ${p.age}`;$('location').textContent='⌁ '+p.place;$('bio').textContent=p.bio;$('profile-prompt').textContent=p.prompt;$('profile-answer').textContent=p.answer;setPortrait($('potato'),index%profiles.length);$('tags').replaceChildren(...p.tags.map(t=>{const s=document.createElement('span');s.textContent=t;return s;}));$('count').textContent=matches.length;$('undo').disabled=!history.length;}
+function renderMatches(){$('empty').hidden=matches.length>0;$('match-list').replaceChildren(...matches.map(i=>{const p=profiles[i],el=document.createElement('article');el.className='match-item';const icon=document.createElement('button');icon.className='match-photo';icon.setAttribute('aria-label',`View ${p.name}’s profile`);setPortrait(icon,i);icon.onclick=()=>openProfile(i);const name=document.createElement('h3');name.textContent=`${p.name}, ${p.age}`;const info=document.createElement('p');info.textContent=p.bio;const chat=document.createElement('button');chat.className='chat-button';chat.textContent='Say hello 💬';chat.setAttribute('aria-label',`Chat with ${p.name}`);chat.onclick=()=>openChat(i);const view=document.createElement('button');view.className='view-profile';view.textContent='View profile';view.onclick=()=>openProfile(i);el.append(icon,name,info,chat,view);return el;}));}
 function swipe(liked){const id=index%profiles.length;history.push({index,matches:[...matches]});if(liked&&!matches.includes(id)){matches.push(id);$('match-message').textContent=`${profiles[id].name} likes you too. Looks like something good is growing.`;$('match-dialog').showModal();}index++;persist();render();$('status').textContent=liked?'A little love planted.':'On to the next spud.';}
 $('pass').onclick=()=>swipe(false);$('like').onclick=()=>swipe(true);$('undo').onclick=()=>{const last=history.pop();if(!last)return;index=last.index;matches=last.matches;persist();render();$('status').textContent='Last swipe undone.';};
 $('keep').onclick=()=>$('match-dialog').close();
 function tab(discover){$('discover').classList.toggle('hidden',!discover);$('matches').classList.toggle('hidden',discover);$('discover-tab').classList.toggle('active',discover);$('matches-tab').classList.toggle('active',!discover);if(!discover)renderMatches();}
 $('discover-tab').onclick=()=>tab(true);$('matches-tab').onclick=()=>tab(false);
-document.addEventListener('keydown',e=>{if($('admirer-dialog').open||$('chat-dialog').open||$('match-dialog').open||$('discover').classList.contains('hidden')||e.target.tagName==='BUTTON')return;if(e.key==='ArrowLeft')swipe(false);if(e.key==='ArrowRight')swipe(true);});
+document.addEventListener('keydown',e=>{if($('profile-dialog').open||$('admirer-dialog').open||$('chat-dialog').open||$('match-dialog').open||$('discover').classList.contains('hidden')||e.target.tagName==='BUTTON')return;if(e.key==='ArrowLeft')swipe(false);if(e.key==='ArrowRight')swipe(true);});
 let touchX=null;$('card').addEventListener('touchstart',e=>{touchX=e.changedTouches[0].clientX;},{passive:true});$('card').addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>65)swipe(dx>0);touchX=null;},{passive:true});render();
 
 function openChat(id){
  if(!matches.includes(id))return;
  activeChat=id;
  if(!chats[id]?.length){chats[id]=[{sender:'potato',text:profiles[id].chat.greeting}];persist();}
- $('chat-title').textContent=`🥔 ${profiles[id].name}`;
+ $('chat-title').textContent=`🥔 ${profiles[id].name}`;$('chat-profile').onclick=()=>{$('chat-dialog').close();openProfile(id);};
  renderChat();$('chat-dialog').showModal();$('chat-input').focus();
 }
 function renderChat(){
@@ -517,7 +517,7 @@ function renderAdmirer(){
   const label=document.createElement('small');label.textContent=`Mystery spud ${i+1}`;
   card.append(heart,label);card.onclick=()=>{admirer.selected=id;persist();renderAdmirer();$('admirer-like').focus();};return card;
  }));
- if(revealed){const p=profiles[admirer.selected];$('admirer-name').textContent=`${p.name}, ${p.age}`;$('admirer-bio').textContent=p.bio;$('admirer-prompt').textContent=`${p.prompt}: ${p.answer}`;}
+ if(revealed){setPortrait($('admirer-photo'),admirer.selected);const p=profiles[admirer.selected];$('admirer-name').textContent=`${p.name}, ${p.age}`;$('admirer-bio').textContent=p.bio;$('admirer-prompt').textContent=`${p.prompt}: ${p.answer}`;}
 }
 function finishAdmirer(liked){
  const id=admirer.selected;if(id===null)return;
@@ -531,3 +531,22 @@ $('admirer-open').onclick=openAdmirer;
 $('admirer-close').onclick=()=>$('admirer-dialog').close();
 $('admirer-like').onclick=()=>finishAdmirer(true);
 $('admirer-pass').onclick=()=>finishAdmirer(false);
+
+function setPortrait(el,id){
+ el.classList.add('portrait');
+ el.style.backgroundPosition=`${(id%3)*50}% ${Math.floor(id/3)*20}%`;
+ el.setAttribute('aria-label',`Portrait of ${profiles[id].name}`);
+}
+function openProfile(id){
+ if(!matches.includes(id))return;
+ const p=profiles[id];setPortrait($('full-profile-photo'),id);
+ $('full-profile-name').textContent=`${p.name}, ${p.age}`;
+ $('full-profile-location').textContent=p.place;
+ $('full-profile-bio').textContent=p.bio;
+ $('full-profile-prompt').textContent=p.prompt;
+ $('full-profile-answer').textContent=p.answer;
+ $('full-profile-tags').replaceChildren(...p.tags.map(tag=>{const span=document.createElement('span');span.textContent=tag;return span;}));
+ $('profile-chat').onclick=()=>{$('profile-dialog').close();openChat(id);};
+ $('profile-dialog').showModal();
+}
+$('profile-close').onclick=()=>$('profile-dialog').close();

@@ -23,3 +23,7 @@ Profiles range from thoughtful romantics and quiet introverts to one-word texter
 ## Secret Admirer
 
 Tap the envelope banner above Discover to choose from up to four hidden, unmatched potatoes. Reveal one, then pass or like back to match and open chat. This is a simulated game: each hidden card reveals an admirer. Picks survive closing or reloading; previously revealed potatoes are excluded from future rounds. When everyone has been revealed or matched, the game shows an empty state.
+
+## Matched profiles and portraits
+
+Click a photo or View profile in Matches to reopen the full profile. You can also view a profile from its chat and return via Send a message. All 18 generated portraits are bundled locally in assets/potato-portraits.png, a 3-column by 6-row sprite sheet in profile order. No external image service is needed.
