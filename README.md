@@ -1,6 +1,6 @@
 # Spud 🥔
 
-A playful potato matchmaking demo with six illustrated profiles, likes, matches, undo, keyboard controls, and mobile swiping. Matches are saved in your browser. All matches are simulated; no account or backend is required.
+A playful potato matchmaking demo with 18 illustrated profiles, likes, matches, undo, keyboard controls, and mobile swiping. Matches are saved in your browser. All matches are simulated; no account or backend is required.
 
 ## Run
 
@@ -15,3 +15,7 @@ Use the Discover and Matches tabs, or the left/right arrow keys to pass/like. No
 ## Chat
 
 Open Matches and select Say hello to chat with a matched potato. Replies are scripted, not real people or AI. Conversations and existing matches stay in this browser’s local storage; nothing is sent to a server.
+
+## Personalities
+
+Profiles range from thoughtful romantics and quiet introverts to one-word texters, gym obsessives, unreliable planners, and accidental networkers. Each has a bio, prompt answer, interests, and a distinct scripted chat voice. Original profile positions and the storage key are preserved so existing matches and conversations remain intact. Append new profiles rather than reordering them.
