@@ -42,6 +42,8 @@ Discover skips matched potatoes, including after reload and matches made through
 
 Passes in Discover and Secret Admirer are saved and excluded from future cards and admirer rounds. Undo restores the latest Discover swipe, including a pass. Older Discover passes from before this feature were not stored and cannot be reconstructed.
 
-## Current discovery batch
+## Each visitor’s experience
 
-Discover and Secret Admirer temporarily show only the six new arrivals: Juniper, Nico, Cleo, Bix, Saffron, and Otis (indices 18–23). Original profiles remain accessible through existing matches and chats. Matches and passes still exclude new arrivals. When the batch is exhausted, the deck stays empty instead of returning to old profiles. Each newcomer has three generated photos in assets/potato-new-arrivals.png, with one character per row and portrait/friends/pet columns.
+All 24 profiles are available to a new visitor, with no matches, passes, chats, or poll votes. State is stored only in this browser profile under the app’s storage key. Returning visitors retain their progress, and matched/passed potatoes stay excluded. Separate browsers have independent experiences; people sharing a browser profile share its progress. There is no sign-in or cross-device sync. The footer’s Start fresh action opens a confirmation before clearing only this app’s progress and restoring all cards.
+
+The six newest potatoes use assets/potato-new-arrivals.png, one character per row with portrait/friends/pet columns. Original photos and saved profile indices remain unchanged.

@@ -604,13 +604,13 @@ for(const id of matches){
 let activeChat=null;
 const $=id=>document.getElementById(id);
 function persist(){try{localStorage.setItem('spud-v1',JSON.stringify({index,matches,passed,chats,admirer,pollVotes}));}catch{}}
-// Temporarily show only the newest batch; old matches remain available.
+// The newest photo sheet starts at this stable profile index.
 const discoveryBatchStart=18;
 function isFreshProfile(id){return id>=discoveryBatchStart;}
 function currentDiscoverId(){
  for(let offset=0;offset<profiles.length;offset++){
   const candidate=(index+offset)%profiles.length;
-  if(isFreshProfile(candidate)&&!matches.includes(candidate)&&!passed.includes(candidate)){
+  if(!matches.includes(candidate)&&!passed.includes(candidate)){
    if(offset){index+=offset;persist();}
    return candidate;
   }
@@ -635,7 +635,7 @@ $('pass').onclick=()=>swipe(false);$('like').onclick=()=>swipe(true);$('undo').o
 $('keep').onclick=()=>$('match-dialog').close();
 function tab(discover){$('discover').classList.toggle('hidden',!discover);$('matches').classList.toggle('hidden',discover);$('discover-tab').classList.toggle('active',discover);$('matches-tab').classList.toggle('active',!discover);if(!discover)renderMatches();}
 $('discover-tab').onclick=()=>tab(true);$('matches-tab').onclick=()=>tab(false);
-document.addEventListener('keydown',e=>{if($('profile-dialog').open||$('admirer-dialog').open||$('chat-dialog').open||$('match-dialog').open||$('discover').classList.contains('hidden')||e.target.tagName==='BUTTON')return;if(e.key==='ArrowLeft')swipe(false);if(e.key==='ArrowRight')swipe(true);});
+document.addEventListener('keydown',e=>{if($('reset-dialog').open||$('profile-dialog').open||$('admirer-dialog').open||$('chat-dialog').open||$('match-dialog').open||$('discover').classList.contains('hidden')||e.target.tagName==='BUTTON')return;if(e.key==='ArrowLeft')swipe(false);if(e.key==='ArrowRight')swipe(true);});
 let touchX=null;$('card').addEventListener('touchstart',e=>{touchX=e.changedTouches[0].clientX;},{passive:true});$('card').addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>65)swipe(dx>0);touchX=null;},{passive:true});render();
 
 function openChat(id){
@@ -664,10 +664,10 @@ $('chat-form').addEventListener('submit',e=>{e.preventDefault();sendMessage($('c
 $('chat-close').onclick=()=>$('chat-dialog').close();
 
 function openAdmirer(){
- admirer.choices=admirer.choices.filter(id=>isFreshProfile(id)&&!matches.includes(id)&&!passed.includes(id)&&!admirer.seen.includes(id));
+ admirer.choices=admirer.choices.filter(id=>!matches.includes(id)&&!passed.includes(id)&&!admirer.seen.includes(id));
  if(!admirer.choices.includes(admirer.selected))admirer.selected=null;
  if(!admirer.choices.length){
-  const pool=profiles.map((_,id)=>id).filter(id=>isFreshProfile(id)&&!matches.includes(id)&&!passed.includes(id)&&!admirer.seen.includes(id));
+  const pool=profiles.map((_,id)=>id).filter(id=>!matches.includes(id)&&!passed.includes(id)&&!admirer.seen.includes(id));
   for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
   admirer.choices=pool.slice(0,4);
  }
@@ -774,3 +774,12 @@ function renderChatStarters(id){
   button.onclick=()=>sendMessage(text);return button;
  }));
 }
+
+$('reset-open').onclick=()=>$('reset-dialog').showModal();
+$('reset-cancel').onclick=()=>$('reset-dialog').close();
+$('reset-confirm').onclick=()=>{
+ index=0;matches=[];passed=[];chats={};pollVotes={};history=[];
+ admirer={seen:[],choices:[],selected:null};activeChat=null;viewedProfile=null;profilePhotoIndex=0;
+ persist();render();renderMatches();tab(true);$('reset-dialog').close();
+ $('status').textContent='A fresh start: all 24 potatoes are ready to meet you.';
+};
