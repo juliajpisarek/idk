@@ -47,3 +47,7 @@ Passes in Discover and Secret Admirer are saved and excluded from future cards a
 All 24 profiles are available to a new visitor, with no matches, passes, chats, or poll votes. State is stored only in this browser profile under the app’s storage key. Returning visitors retain their progress, and matched/passed potatoes stay excluded. Separate browsers have independent experiences; people sharing a browser profile share its progress. There is no sign-in or cross-device sync. The footer’s Start fresh action opens a confirmation before clearing only this app’s progress and restoring all cards.
 
 The six newest potatoes use assets/potato-new-arrivals.png, one character per row with portrait/friends/pet columns. Original photos and saved profile indices remain unchanged.
+
+## Mobile swiping
+
+Drag cards horizontally to like or pass. Cards follow your finger with rotation and live labels; short drags snap back and decisive swipes or quick flicks dismiss the card. Vertical scrolling and profile buttons remain usable. Reduced-motion preferences skip the dismissal animation. Mouse dragging, action buttons, and keyboard controls remain supported.

@@ -602,6 +602,7 @@ for(const id of matches){
  if(Array.isArray(messages))chats[id]=messages.filter(m=>m&&['me','potato'].includes(m.sender)&&typeof m.text==='string');
 }
 let activeChat=null;
+let swipeGesture=null;
 const $=id=>document.getElementById(id);
 function persist(){try{localStorage.setItem('spud-v1',JSON.stringify({index,matches,passed,chats,admirer,pollVotes}));}catch{}}
 // The newest photo sheet starts at this stable profile index.
@@ -618,6 +619,7 @@ function currentDiscoverId(){
  return null;
 }
 function render(){
+ swipeGesture?.reset();
  const id=currentDiscoverId(),exhausted=id===null;
  $('count').textContent=matches.length;
  $('undo').disabled=!history.length;
@@ -630,13 +632,16 @@ function render(){
  const p=profiles[id];
 $('name').textContent=`${p.name}, ${p.age}`;$('location').textContent='⌁ '+p.place;$('bio').textContent=p.bio;$('profile-prompt').textContent=p.prompt;$('profile-answer').textContent=p.answer;setPortrait($('potato'),index%profiles.length);$('tags').replaceChildren(...p.tags.map(t=>{const s=document.createElement('span');s.textContent=t;return s;}));$('count').textContent=matches.length;}
 function renderMatches(){$('empty').hidden=matches.length>0;$('match-list').replaceChildren(...matches.map(i=>{const p=profiles[i],el=document.createElement('article');el.className='match-item';const icon=document.createElement('button');icon.className='match-photo';icon.setAttribute('aria-label',`View ${p.name}’s profile`);setPortrait(icon,i);icon.onclick=()=>openProfile(i);const name=document.createElement('h3');name.textContent=`${p.name}, ${p.age}`;const info=document.createElement('p');info.textContent=p.bio;const chat=document.createElement('button');chat.className='chat-button';chat.textContent='Say hello 💬';chat.setAttribute('aria-label',`Chat with ${p.name}`);chat.onclick=()=>openChat(i);const view=document.createElement('button');view.className='view-profile';view.textContent='View profile';view.onclick=()=>openProfile(i);el.append(icon,name,info,chat,view);return el;}));}
-function swipe(liked){const id=currentDiscoverId();if(id===null)return;history.push({index,matches:[...matches],passed:[...passed]});if(liked&&!matches.includes(id)){matches.push(id);$('match-message').textContent=`${profiles[id].name} likes you too. Looks like something good is growing.`;$('match-dialog').showModal();}if(!liked&&!passed.includes(id))passed.push(id);index++;persist();render();$('status').textContent=liked?'A little love planted.':'On to the next spud.';}
+function swipe(liked){if(swipeGesture?.busy)return;const id=currentDiscoverId();if(id===null)return;history.push({index,matches:[...matches],passed:[...passed]});if(liked&&!matches.includes(id)){matches.push(id);$('match-message').textContent=`${profiles[id].name} likes you too. Looks like something good is growing.`;$('match-dialog').showModal();}if(!liked&&!passed.includes(id))passed.push(id);index++;persist();render();$('status').textContent=liked?'A little love planted.':'On to the next spud.';}
 $('pass').onclick=()=>swipe(false);$('like').onclick=()=>swipe(true);$('undo').onclick=()=>{const last=history.pop();if(!last)return;index=last.index;matches=last.matches;passed=last.passed;persist();render();$('status').textContent='Last swipe undone.';};
 $('keep').onclick=()=>$('match-dialog').close();
 function tab(discover){$('discover').classList.toggle('hidden',!discover);$('matches').classList.toggle('hidden',discover);$('discover-tab').classList.toggle('active',discover);$('matches-tab').classList.toggle('active',!discover);if(!discover)renderMatches();}
 $('discover-tab').onclick=()=>tab(true);$('matches-tab').onclick=()=>tab(false);
 document.addEventListener('keydown',e=>{if($('reset-dialog').open||$('profile-dialog').open||$('admirer-dialog').open||$('chat-dialog').open||$('match-dialog').open||$('discover').classList.contains('hidden')||e.target.tagName==='BUTTON')return;if(e.key==='ArrowLeft')swipe(false);if(e.key==='ArrowRight')swipe(true);});
-let touchX=null;$('card').addEventListener('touchstart',e=>{touchX=e.changedTouches[0].clientX;},{passive:true});$('card').addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>65)swipe(dx>0);touchX=null;},{passive:true});render();
+swipeGesture=SpudSwipe.attach($('card'),{
+ onSwipe:swipe,
+ canStart:()=>currentDiscoverId()!==null&&!['match-dialog','chat-dialog','profile-dialog','admirer-dialog','reset-dialog'].some(id=>$(id).open)
+});render();
 
 function openChat(id){
  if(!matches.includes(id))return;

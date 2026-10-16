@@ -4,9 +4,9 @@ const fs=require('node:fs');
 const vm=require('node:vm');
 function boot(saved={}){
  const nodes=new Map();let stored=JSON.stringify(saved);
- function element(){const classes=new Set();return {style:{},value:'',children:[],classList:{add(...v){v.forEach(x=>classes.add(x));},remove(...v){v.forEach(x=>classes.delete(x));},contains(v){return classes.has(v);},toggle(v,on){if(on)classes.add(v);else classes.delete(v);}},setAttribute(){},replaceChildren(...children){this.children=children;},append(...children){this.children.push(...children);},addEventListener(event,fn){this[event]=fn;},focus(){},showModal(){this.open=true;},close(){this.open=false;}};}
+ function element(){const classes=new Set();return {querySelector(){return null;},style:{},value:'',children:[],classList:{add(...v){v.forEach(x=>classes.add(x));},remove(...v){v.forEach(x=>classes.delete(x));},contains(v){return classes.has(v);},toggle(v,on){if(on)classes.add(v);else classes.delete(v);}},setAttribute(){},replaceChildren(...children){this.children=children;},append(...children){this.children.push(...children);},addEventListener(event,fn){this[event]=fn;},focus(){},showModal(){this.open=true;},close(){this.open=false;}};}
  const ctx=vm.createContext({document:{getElementById(id){if(!nodes.has(id))nodes.set(id,element());return nodes.get(id);},createElement:element,addEventListener(){}},localStorage:{getItem(){return stored;},setItem(k,v){stored=v;}}});
- for(const file of ['profile-details.js','chat-personalities.js','chat-engine.js','app.js'])vm.runInContext(fs.readFileSync(file,'utf8'),ctx);
+ for(const file of ['profile-details.js','chat-personalities.js','chat-engine.js','swipe.js','app.js'])vm.runInContext(fs.readFileSync(file,'utf8'),ctx);
  return {ctx,nodes,state:()=>JSON.parse(stored)};
 }
 
