@@ -34,3 +34,7 @@ test('start fresh requires confirmation and clears only this browser experience'
 test('new profile galleries use three different columns of the fresh photo sheet',()=>{
  const app=boot();app.ctx.openProfile(18);assert.equal(app.nodes.get('full-profile-photo').style.backgroundPosition,'0% 0%');app.nodes.get('photo-next').onclick();assert.equal(app.nodes.get('full-profile-photo').style.backgroundPosition,'50% 0%');app.nodes.get('photo-next').onclick();assert.equal(app.nodes.get('full-profile-photo').style.backgroundPosition,'100% 0%');app.ctx.openProfile(23);assert.equal(app.nodes.get('full-profile-photo').style.backgroundPosition,'0% 100%');
 });
+
+test('tapping the discovery photo opens the current full profile without matching',()=>{
+ const app=boot({matches:[0],passed:[1]});app.nodes.get('potato').onclick();assert.equal(app.nodes.get('full-profile-name').textContent,'Violet, 25');assert.equal(app.nodes.get('profile-dialog').open,true);assert.deepEqual(app.state().matches,[0]);
+});

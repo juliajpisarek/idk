@@ -630,7 +630,7 @@ function render(){
  $('pass').disabled=exhausted;$('like').disabled=exhausted;
  if(exhausted)return;
  const p=profiles[id];
-$('name').textContent=`${p.name}, ${p.age}`;$('location').textContent='⌁ '+p.place;$('bio').textContent=p.bio;$('profile-prompt').textContent=p.prompt;$('profile-answer').textContent=p.answer;setPortrait($('potato'),index%profiles.length);$('tags').replaceChildren(...p.tags.map(t=>{const s=document.createElement('span');s.textContent=t;return s;}));$('count').textContent=matches.length;}
+$('name').textContent=`${p.name}, ${p.age}`;$('location').textContent='⌁ '+p.place;$('bio').textContent=p.bio;$('profile-prompt').textContent=p.prompt;$('profile-answer').textContent=p.answer;setPortrait($('potato'),index%profiles.length);$('potato').setAttribute('aria-label',`Open ${p.name}’s full profile`);$('tags').replaceChildren(...p.tags.map(t=>{const s=document.createElement('span');s.textContent=t;return s;}));$('count').textContent=matches.length;}
 function renderMatches(){$('empty').hidden=matches.length>0;$('match-list').replaceChildren(...matches.map(i=>{const p=profiles[i],el=document.createElement('article');el.className='match-item';const icon=document.createElement('button');icon.className='match-photo';icon.setAttribute('aria-label',`View ${p.name}’s profile`);setPortrait(icon,i);icon.onclick=()=>openProfile(i);const name=document.createElement('h3');name.textContent=`${p.name}, ${p.age}`;const info=document.createElement('p');info.textContent=p.bio;const chat=document.createElement('button');chat.className='chat-button';chat.textContent='Say hello 💬';chat.setAttribute('aria-label',`Chat with ${p.name}`);chat.onclick=()=>openChat(i);const view=document.createElement('button');view.className='view-profile';view.textContent='View profile';view.onclick=()=>openProfile(i);el.append(icon,name,info,chat,view);return el;}));}
 function swipe(liked){if(swipeGesture?.busy)return;const id=currentDiscoverId();if(id===null)return;history.push({index,matches:[...matches],passed:[...passed]});if(liked&&!matches.includes(id)){matches.push(id);$('match-message').textContent=`${profiles[id].name} likes you too. Looks like something good is growing.`;$('match-dialog').showModal();}if(!liked&&!passed.includes(id))passed.push(id);index++;persist();render();$('status').textContent=liked?'A little love planted.':'On to the next spud.';}
 $('pass').onclick=()=>swipe(false);$('like').onclick=()=>swipe(true);$('undo').onclick=()=>{const last=history.pop();if(!last)return;index=last.index;matches=last.matches;passed=last.passed;persist();render();$('status').textContent='Last swipe undone.';};
@@ -770,7 +770,9 @@ function renderPoll(id){
 }
 $('photo-prev').onclick=()=>{if(viewedProfile!==null)showProfilePhoto(viewedProfile,profilePhotoIndex-1);};
 $('photo-next').onclick=()=>{if(viewedProfile!==null)showProfilePhoto(viewedProfile,profilePhotoIndex+1);};
-$('discover-profile').onclick=()=>{const id=currentDiscoverId();if(id!==null)openProfile(id);};
+function openDiscoverProfile(){if(swipeGesture?.busy)return;const id=currentDiscoverId();if(id!==null)openProfile(id);}
+$('discover-profile').onclick=openDiscoverProfile;
+$('potato').onclick=openDiscoverProfile;
 $('discovery-matches').onclick=()=>tab(false);
 
 function renderChatStarters(id){

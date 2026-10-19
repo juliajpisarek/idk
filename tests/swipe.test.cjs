@@ -30,3 +30,7 @@ test('mobile vertical gestures remain scrollable and touch cancellation never co
 test('dismissal holds offscreen until the next profile commits',async()=>{
  let finish,options;const s=setup((frames,opts)=>{options=opts;return {finished:new Promise(r=>finish=r),cancel(){}};});s.event('pointerdown',0,0);s.event('pointermove',150,0,100);s.event('pointerup',150,0,150);assert.equal(options.fill,'forwards');finish();await Promise.resolve();assert.deepEqual(s.calls,[true]);
 });
+
+test('the tappable photo button remains a swipe surface',()=>{
+ const s=setup();s.event('pointerdown',0,0,0,{target:{closest:()=>({hasAttribute:key=>key==='data-swipe-surface'})}});s.event('pointermove',140,0,100);s.event('pointerup',140,0,150);assert.deepEqual(s.calls,[true]);
+});

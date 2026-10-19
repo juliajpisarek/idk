@@ -39,7 +39,9 @@ const SpudSwipe=(()=>{
   function begin(e){
    if(busy)return;
    suppressClick=false;
-   if(e.isPrimary===false||e.button!==0||!canStart()||e.target.closest('button,a,input,textarea,select'))return;
+   if(e.isPrimary===false||e.button!==0||!canStart())return;
+   const control=e.target.closest('button,a,input,textarea,select');
+   if(control&&!control.hasAttribute?.('data-swipe-surface'))return;
    drag={id:e.pointerId,x:e.clientX,y:e.clientY,sampleX:e.clientX,sampleTime:e.timeStamp,horizontal:false,touch:Boolean(e.touch),width:card.getBoundingClientRect().width};
   }
   function move(e){
