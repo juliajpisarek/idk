@@ -48,3 +48,9 @@ test('ten additional profiles have complete unique details, chats, and three dis
 test('returning users who finished the previous lineup get the new profiles',()=>{
  const app=boot({index:24,matches:Array.from({length:12},(_,id)=>id),passed:Array.from({length:12},(_,id)=>id+12),chats:{0:[{sender:'me',text:'Still here'}]}});assert.equal(app.ctx.currentDiscoverId(),24);assert.equal(app.state().chats[0][0].text,'Still here');
 });
+
+test('discovery photo swipes cycle each gallery, preserve decisions, and reset for the next potato',()=>{
+ for(const id of [0,18,24,29,33]){
+  const app=boot({index:id});app.ctx.showDiscoveryPhoto(1);assert.match(app.nodes.get('discovery-photo-caption').textContent,/2 \/ 3/);assert(app.nodes.get('potato').classList.contains('photo-friends'));app.ctx.showDiscoveryPhoto(1);assert(app.nodes.get('potato').classList.contains('photo-life'));app.ctx.showDiscoveryPhoto(1);assert.match(app.nodes.get('discovery-photo-caption').textContent,/1 \/ 3/);app.ctx.showDiscoveryPhoto(-1);assert.match(app.nodes.get('discovery-photo-caption').textContent,/3 \/ 3/);app.ctx.swipe(false);assert.match(app.nodes.get('discovery-photo-caption').textContent,/1 \/ 3/);assert.deepEqual(app.state().matches,[]);assert.deepEqual(app.state().passed,[id]);
+ }
+});

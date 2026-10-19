@@ -55,3 +55,5 @@ Drag cards horizontally to like or pass. Cards follow your finger with rotation 
 ## Additional personalities
 
 Petra, Rafi, Blanche, Cash, Lyra, Hugo, Pippa, Sterling, Miso, and Fern are appended at indices 24–33. Each has three photos, a full bio, three prompt answers, lifestyle facts, a poll, and a scripted voice. Two 3-column by 5-row photo sheets (assets/potato-wave-a.png and assets/potato-wave-b.png) supply portrait/friends/pet galleries. Existing matches, passes, chats, and poll choices retain their original indices.
+
+Swipe up on a Discover photo to see the next picture; swipe down for the previous one. Photos wrap around and reset for the next potato. Left/right still passes/likes, and a tap still opens the full profile. Vertical scrolling remains available from the rest of the card. With the photo focused, Up/Down arrow keys also browse pictures.

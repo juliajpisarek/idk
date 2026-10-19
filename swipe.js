@@ -5,7 +5,7 @@ const SpudSwipe=(()=>{
   const distance=Math.min(110,Math.max(65,width*.28));
   return Math.abs(dx)>=distance||(Math.abs(dx)>=35&&Math.abs(velocity)>=.55)?dx>0:null;
  }
- function attach(card,{onSwipe,canStart}){
+ function attach(card,{onSwipe,onPhoto,canStart}){
   let drag=null,busy=false,generation=0,animation=null,suppressClick=false;
   const stamps={like:card.querySelector('.swipe-like'),pass:card.querySelector('.swipe-pass')};
   function paint(dx=0,dy=0){
@@ -21,6 +21,11 @@ const SpudSwipe=(()=>{
    if(!drag||drag.id!==e.pointerId)return;
    const state=drag;drag=null;card.classList.remove('dragging');
    const dx=e.clientX-state.x,dy=e.clientY-state.y;
+   if(state.vertical){
+    suppressClick=true;paint();
+    if(!cancelled&&Math.abs(dy)>=45)onPhoto?.(dy<0?1:-1);
+    return;
+   }
    if(!state.horizontal){paint();return;}
    suppressClick=true;
    const elapsed=Math.max(1,e.timeStamp-state.sampleTime);
@@ -42,16 +47,20 @@ const SpudSwipe=(()=>{
    if(e.isPrimary===false||e.button!==0||!canStart())return;
    const control=e.target.closest('button,a,input,textarea,select');
    if(control&&!control.hasAttribute?.('data-swipe-surface'))return;
-   drag={id:e.pointerId,x:e.clientX,y:e.clientY,sampleX:e.clientX,sampleTime:e.timeStamp,horizontal:false,touch:Boolean(e.touch),width:card.getBoundingClientRect().width};
+   drag={id:e.pointerId,x:e.clientX,y:e.clientY,sampleX:e.clientX,sampleTime:e.timeStamp,horizontal:false,vertical:false,photo:Boolean(control?.hasAttribute?.('data-swipe-surface'))&&Boolean(onPhoto),touch:Boolean(e.touch),width:card.getBoundingClientRect().width};
   }
   function move(e){
    if(!drag||drag.id!==e.pointerId)return;
    const dx=e.clientX-drag.x,dy=e.clientY-drag.y;
-   if(!drag.horizontal){
+   if(!drag.horizontal&&!drag.vertical){
     if(Math.max(Math.abs(dx),Math.abs(dy))<10)return;
-    if(Math.abs(dy)>=Math.abs(dx)){drag=null;return;}
+    if(Math.abs(dy)>=Math.abs(dx)){
+     if(!drag.photo){drag=null;return;}
+     drag.vertical=true;if(!e.touch)card.setPointerCapture?.(e.pointerId);return;
+    }
     drag.horizontal=true;card.classList.add('dragging');if(!e.touch)card.setPointerCapture?.(e.pointerId);
    }
+   if(drag.vertical)return;
    paint(dx,dy);
    if(e.timeStamp-drag.sampleTime>80){drag.sampleX=e.clientX;drag.sampleTime=e.timeStamp;}
   }
@@ -70,7 +79,7 @@ const SpudSwipe=(()=>{
    if(e.touches.length!==1){reset();return;}
    const t=Array.from(e.touches).find(t=>t.identifier===drag.id);if(!t)return;
    const dx=t.clientX-drag.x,dy=t.clientY-drag.y;
-   if(drag.horizontal||(Math.abs(dx)>=8&&Math.abs(dx)>Math.abs(dy))){
+   if(drag.horizontal||drag.vertical||(Math.abs(dx)>=8&&Math.abs(dx)>Math.abs(dy))||(drag.photo&&Math.abs(dy)>=8&&Math.abs(dy)>=Math.abs(dx))){
     if(!e.cancelable){reset();return;}
     e.preventDefault();
    }

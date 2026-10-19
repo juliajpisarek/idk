@@ -1,5 +1,5 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs');
-function setup(animate){const handlers={},stamps={'.swipe-like':{style:{}},'.swipe-pass':{style:{}}},calls=[];const card={style:{},classList:{add(){},remove(){}},querySelector:s=>stamps[s],setPointerCapture(){},getBoundingClientRect:()=>({width:360}),addEventListener(k,fn){handlers[k]=fn;},animate};const ctx=vm.createContext({innerWidth:390});vm.runInContext(fs.readFileSync('swipe.js','utf8'),ctx);const api=vm.runInContext('SpudSwipe',ctx);const controller=api.attach(card,{onSwipe:v=>calls.push(v),canStart:()=>true});function event(type,x,y,time=0,extra={}){handlers[type]({pointerId:1,isPrimary:true,button:0,clientX:x,clientY:y,timeStamp:time,target:{closest:()=>false},...extra});}return {event,handlers,calls,stamps,card,controller,api};}
+function setup(animate,onPhoto){const handlers={},stamps={'.swipe-like':{style:{}},'.swipe-pass':{style:{}}},calls=[];const card={style:{},classList:{add(){},remove(){}},querySelector:s=>stamps[s],setPointerCapture(){},getBoundingClientRect:()=>({width:360}),addEventListener(k,fn){handlers[k]=fn;},animate};const ctx=vm.createContext({innerWidth:390});vm.runInContext(fs.readFileSync('swipe.js','utf8'),ctx);const api=vm.runInContext('SpudSwipe',ctx);const controller=api.attach(card,{onSwipe:v=>calls.push(v),onPhoto,canStart:()=>true});function event(type,x,y,time=0,extra={}){handlers[type]({pointerId:1,isPrimary:true,button:0,clientX:x,clientY:y,timeStamp:time,target:{closest:()=>false},...extra});}return {event,handlers,calls,stamps,card,controller,api};}
 test('horizontal drags track finger, show stamps and commit right/left',()=>{
  for(const [dx,liked,stamp] of [[130,true,'.swipe-like'],[-130,false,'.swipe-pass']]){const s=setup();s.event('pointerdown',100,100);s.event('pointermove',100+dx,105,150);assert(s.card.style.transform.includes(`${dx}px`));assert.equal(s.stamps[stamp].style.opacity,'1');s.event('pointerup',100+dx,105,180);assert.deepEqual(s.calls,[liked]);}
 });
@@ -33,4 +33,17 @@ test('dismissal holds offscreen until the next profile commits',async()=>{
 
 test('the tappable photo button remains a swipe surface',()=>{
  const s=setup();s.event('pointerdown',0,0,0,{target:{closest:()=>({hasAttribute:key=>key==='data-swipe-surface'})}});s.event('pointermove',140,0,100);s.event('pointerup',140,0,150);assert.deepEqual(s.calls,[true]);
+});
+
+test('vertical touch swipes on the photo change photos without liking or opening the profile',()=>{
+ for(const [dy,expected] of [[-100,1],[100,-1]]){
+  const photos=[],s=setup(undefined,d=>photos.push(d));const target={closest:()=>({hasAttribute:k=>k==='data-swipe-surface'})};const point=(y)=>({identifier:2,clientX:100,clientY:y});let prevented=false;
+  s.handlers.touchstart({touches:[point(200)],timeStamp:0,target});
+  s.handlers.touchmove({touches:[point(200+dy)],timeStamp:100,target,cancelable:true,preventDefault(){prevented=true;}});
+  s.handlers.touchend({changedTouches:[point(200+dy)],timeStamp:160,target});assert(prevented);assert.deepEqual(photos,[expected]);assert.equal(s.calls.length,0);
+  let suppressed=false;s.event('click',0,0,0,{preventDefault(){suppressed=true;},stopPropagation(){}});assert(suppressed);
+ }
+});
+test('short or cancelled vertical photo drags leave the photo unchanged',()=>{
+ for(const cancelled of [false,true]){const photos=[],s=setup(undefined,d=>photos.push(d)),target={closest:()=>({hasAttribute:()=>true})};s.event('pointerdown',100,200,0,{target});s.event('pointermove',100,cancelled?100:180,100);s.event(cancelled?'pointercancel':'pointerup',100,cancelled?100:180,150);assert.equal(photos.length,0);assert.equal(s.calls.length,0);}
 });
