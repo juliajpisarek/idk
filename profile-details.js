@@ -301,20 +301,20 @@ const profileDetails = [
     },
     "prompts": [
       {
-        "question": "My simple pleasures",
-        "answer": "sleep"
+        "question": "My most controversial opinion",
+        "answer": "people don’t make an effort anymore"
       },
       {
-        "question": "I’m looking for",
-        "answer": "someone nice"
+        "question": "My ideal first message",
+        "answer": "something original. no not that."
       }
     ],
     "poll": {
-      "question": "food?",
+      "question": "Start the conversation for me",
       "options": [
-        "pizza",
-        "burger",
-        "whatever"
+        "Carry it alone",
+        "Ask me a question I ignore",
+        "Apologize for double texting"
       ]
     },
     "photos": [
@@ -340,29 +340,29 @@ const profileDetails = [
       "Pets": "No pets, too busy training",
       "Family plans": "Wants a family eventually",
       "Habits": "Rarely drinks · Non-smoker",
-      "Daily life": "5 AM · Gym six days a week",
+      "Daily life": "5 AM gym · 6 AM checking who liked the gym photo",
       "On repeat": "Workout remixes · Motivational podcasts"
     },
     "prompts": [
       {
-        "question": "My biggest achievement",
-        "answer": "Becoming the person my pre-workout thinks I am."
+        "question": "A boundary I respect",
+        "answer": "The boundary between my protein and your shelf in the fridge."
       },
       {
-        "question": "A non-negotiable",
-        "answer": "Discipline. Except when it’s my cheat day."
+        "question": "My biggest red flag",
+        "answer": "Being too loyal. And the gym mirror incident, which my lawyer says was a misunderstanding."
       },
       {
-        "question": "My ideal partner",
-        "answer": "Independent, ambitious, and happy to take twenty-seven photos of my back."
+        "question": "We’ll get along if",
+        "answer": "You have your own hobbies. Quiet ones. Near the gym."
       }
     ],
     "poll": {
-      "question": "Best first date?",
+      "question": "What should our anniversary activity be?",
       "options": [
-        "Leg day",
-        "Protein pancakes",
-        "A walk, but make it weighted"
+        "Watch me train",
+        "Film me training",
+        "Discuss my training"
       ]
     },
     "photos": [
@@ -431,7 +431,7 @@ const profileDetails = [
   {
     "facts": {
       "Work": "Luxury brand consultant",
-      "Looking for": "A relationship with standards",
+      "Looking for": "Luxury companionship · Your treat",
       "Relationship style": "Monogamy",
       "Pets": "Whippet, Fig",
       "Family plans": "Undecided",
@@ -441,24 +441,24 @@ const profileDetails = [
     },
     "prompts": [
       {
-        "question": "An underrated luxury",
-        "answer": "Someone else making a competent reservation."
+        "question": "My love language",
+        "answer": "A spontaneous gift from the extremely detailed wishlist I sent spontaneously."
       },
       {
-        "question": "My most irrational fear",
-        "answer": "Overhead lighting on a first date."
+        "question": "My perfect Sunday",
+        "answer": "Complaining about a hotel breakfast I did not pay for."
       },
       {
-        "question": "My friends roast me for",
-        "answer": "Calling a trip “low-key” when I have a spreadsheet of wine bars."
+        "question": "What I bring to the table",
+        "answer": "An opinion about the table. It’s too close to the kitchen."
       }
     ],
     "poll": {
-      "question": "Our table is ready. Order…",
+      "question": "A romantic gesture is…",
       "options": [
-        "Martinis and oysters",
-        "The tasting menu",
-        "Chips, secretly my favorite"
+        "A table at the impossible place",
+        "A weekend with no budget discussion",
+        "Your card on file"
       ]
     },
     "photos": [
@@ -489,24 +489,24 @@ const profileDetails = [
     },
     "prompts": [
       {
-        "question": "My responsible trait",
-        "answer": "I file my taxes early. I’m aware the hat suggests otherwise."
+        "question": "Two truths and a lie",
+        "answer": "I’ve won a raffle. I own a fog machine. I have used the fog machine responsibly."
       },
       {
-        "question": "The group chat knows me as",
-        "answer": "“Please tell us you didn’t.” Usually followed by “Send photos.”"
+        "question": "A cause I care about",
+        "answer": "The goose by the canal knows what it did."
       },
       {
-        "question": "We should absolutely not",
-        "answer": "Buy a tandem bicycle on the first date. Unless it’s a bargain."
+        "question": "My most mature quality",
+        "answer": "I have an emergency fund. One category is labeled “goose litigation.”"
       }
     ],
     "poll": {
-      "question": "Pick our questionable side quest",
+      "question": "What’s our couple activity?",
       "options": [
-        "Thrift-store outfit swap",
-        "Mystery bus ride",
-        "Karaoke before dinner"
+        "Thrift-store disguise night",
+        "Fog machine board games",
+        "Mediated peace talks with the goose"
       ]
     },
     "photos": [
@@ -633,24 +633,24 @@ const profileDetails = [
     },
     "prompts": [
       {
-        "question": "My love language",
-        "answer": "A playlist with a title you only understand after track seven."
+        "question": "My dream relationship",
+        "answer": "Like the movies, but you notice I’m upset without me having to say what’s wrong."
       },
       {
-        "question": "I’m working on",
-        "answer": "Not mistaking anxiety for chemistry. Character development!"
+        "question": "A recent achievement",
+        "answer": "Didn’t check who viewed my story for twelve consecutive minutes."
       },
       {
-        "question": "A detail I’ll remember",
-        "answer": "The way you laugh when you’re trying not to."
+        "question": "My green flag",
+        "answer": "I communicate openly through incredibly specific song lyrics."
       }
     ],
     "poll": {
-      "question": "Choose our film-scene date",
+      "question": "You haven’t replied for 20 minutes. You’re…",
       "options": [
-        "Rainy bookshop",
-        "Rooftop sunset",
-        "Late-night diner confession"
+        "Busy (unlikely)",
+        "Writing me a sonnet",
+        "About to feature on track seven"
       ]
     },
     "photos": [
@@ -671,7 +671,7 @@ const profileDetails = [
   {
     "facts": {
       "Work": "Founder & CEO, RootScale",
-      "Looking for": "A high-alignment connection",
+      "Looking for": "A romantic co-founder · Equity-only compensation",
       "Relationship style": "Let’s discuss the framework",
       "Pets": "No pets · Limited bandwidth",
       "Family plans": "Open to a five-year roadmap",
@@ -681,24 +681,24 @@ const profileDetails = [
     },
     "prompts": [
       {
-        "question": "The way to win me over",
-        "answer": "Bring a differentiated perspective and a concise introduction."
+        "question": "My love language",
+        "answer": "Acts of unpaid consulting."
       },
       {
-        "question": "A personal milestone",
-        "answer": "We hit product-market fit. Emotionally? Still validating."
+        "question": "A non-negotiable",
+        "answer": "You sign an NDA before I explain why my ex was wrong."
       },
       {
-        "question": "Something I value",
-        "answer": "Work-life balance. It’s on the Q4 roadmap."
+        "question": "My ideal first date",
+        "answer": "A casual drink with a twelve-slide introduction. No questions until the end."
       }
     ],
     "poll": {
-      "question": "Quick alignment check",
+      "question": "How should we define the relationship?",
       "options": [
-        "Coffee, 15 minutes",
-        "Walk-and-talk",
-        "I send you the deck first"
+        "A three-month pilot",
+        "An exclusive beta",
+        "Let’s form a steering committee"
       ]
     },
     "photos": [
@@ -767,7 +767,7 @@ const profileDetails = [
   {
     "facts": {
       "Work": "between things",
-      "Looking for": "nothing heavy but maybe",
+      "Looking for": "Keeping it casual · Unless you do",
       "Relationship style": "idk yet",
       "Pets": "not mine but love dogs",
       "Family plans": "haven’t thought about it",
@@ -777,24 +777,24 @@ const profileDetails = [
     },
     "prompts": [
       {
-        "question": "My ideal Sunday",
-        "answer": "depends who’s asking 😏"
+        "question": "What I’m looking for",
+        "answer": "nothing serious but please don’t date anyone else while i decide"
+      },
+      {
+        "question": "My communication style",
+        "answer": "typing… then a weather update three weeks later"
       },
       {
         "question": "My best quality",
-        "answer": "better in person"
-      },
-      {
-        "question": "A promise I can make",
-        "answer": "I’ll probably reply. at some point"
+        "answer": "amazing potential. everyone says it before they leave."
       }
     ],
     "poll": {
-      "question": "plans tonight?",
+      "question": "When are you free?",
       "options": [
-        "maybe out",
-        "maybe in",
-        "who knows"
+        "Maybe Friday",
+        "Actually not Friday",
+        "I’ll text you"
       ]
     },
     "photos": [
@@ -804,7 +804,7 @@ const profileDetails = [
       },
       {
         "kind": "friends",
-        "caption": "old pic but i still look like this. mostly"
+        "caption": "wedding pic. cousin probably. don’t make it weird."
       },
       {
         "kind": "life",

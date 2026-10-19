@@ -148,22 +148,22 @@ const profiles = [
     "name": "Spud",
     "age": 28,
     "place": "Somewhere · distance unknown",
-    "bio": "just ask",
+    "bio": "just ask. but not “how are you” that’s boring. or what i do. or what i’m looking for. entertain me. notifications off.",
     "tags": [
-      "Chilling",
-      "Music",
-      "Food"
+      "Make me laugh",
+      "Never asks back",
+      "Photos from 2019"
     ],
-    "prompt": "About me",
-    "answer": "not good at these lol",
+    "prompt": "The key to my heart",
+    "answer": "you tell me",
     "color": 8,
     "chat": {
-      "greeting": "hey",
-      "date": "maybe. where",
+      "greeting": "hey. say something interesting",
+      "date": "you plan it. somewhere near me. not that place though",
       "food": "yeah love food",
       "replies": [
-        "haha yeah",
-        "wyd"
+        "work was work. why so many questions",
+        "haha. anyway entertain me"
       ],
       "bye": "night"
     }
@@ -172,22 +172,22 @@ const profiles = [
     "name": "Duke",
     "age": 32,
     "place": "The gym patch · 1 field away",
-    "bio": "6 foot in the right soil. Gym. Grind. Repeat. Looking for a partner in crime who doesn’t take life too seriously. No drama. If you can’t handle me at my raw, you don’t deserve me at my baked.",
+    "bio": "6’2 in premium compost. My ex said I was emotionally unavailable, so I blocked her to protect my peace. Looking for someone independent who is available whenever I finish training. NO DRAMA. That’s why this bio is all caps in spirit.",
     "tags": [
-      "5 AM club",
-      "No drama",
-      "Ask about my macros"
+      "No drama (lots of drama)",
+      "Macros before manners",
+      "Photos are all me"
     ],
     "prompt": "My love language",
-    "answer": "Quality time. Specifically, spotting me.",
+    "answer": "You filming my deadlift. Landscape. No, do it again.",
     "color": 350,
     "chat": {
-      "greeting": "What’s your squat PR?",
-      "date": "We could do a leg day. Then meal prep. Two dates in one.",
+      "greeting": "Before we start: how many pull-ups can you do? Be honest.",
+      "date": "You can come to leg day. Please don’t talk during the working sets.",
       "food": "Food is fuel. Except cheat day, when it is a competitive sport.",
       "replies": [
-        "Respect the hustle. What are your goals though?",
-        "Just smashed a session. Anyway, back to my goals."
+        "My client said she wanted “balance” so I sent her a picture of my meal-prep scales.",
+        "I’m not obsessed with myself. I’m committed to the product."
       ],
       "bye": "Early start tomorrow. Grind never sleeps. I do, at nine."
     }
@@ -220,22 +220,22 @@ const profiles = [
     "name": "Truffle",
     "age": 31,
     "place": "The expensive end of the field · 8 fields away",
-    "bio": "Not for everyone. Neither is natural wine. Usually between a restaurant reservation and a very strong opinion about the lighting. Looking for someone with taste. Bonus points if you know where to get a decent martini.",
+    "bio": "Seeking a financially stable emotional support potato. Fluent in French menu items and the phrase “do you know who I am?” My simple pleasures cost £240 per person. If your favorite restaurant has a laminated menu, let’s save each other some time.",
     "tags": [
-      "Boutique everything",
-      "Reservations only",
-      "Taste curator"
+      "Invoice energy",
+      "Gift registry ready",
+      "“Quiet luxury” (loudly)"
     ],
-    "prompt": "My simple pleasures",
-    "answer": "A tasting menu with fewer than two foams. I’m quite grounded, really.",
+    "prompt": "My most irrational fear",
+    "answer": "Being loved for who I am instead of what I can order.",
     "color": 355,
     "chat": {
-      "greeting": "What’s the last restaurant that actually impressed you?",
-      "date": "I know a place. It’s not cheap, but neither is disappointment.",
+      "greeting": "What’s your relationship with the phrase “market price”?",
+      "date": "I’ll choose the restaurant. You can have the authentic experience of discovering the bill.",
       "food": "Fries? Hand-cut, I assume. What oil are we talking?",
       "replies": [
-        "Interesting. I have some thoughts about that. Several, actually.",
-        "I’m not high maintenance. I just notice when the glassware is wrong."
+        "Someone called me high maintenance. I prefer “requires specialist care.”",
+        "I’m very down to earth. I just prefer imported earth."
       ],
       "bye": "Bonsoir. I’ve got an offensively early facial."
     }
@@ -244,22 +244,22 @@ const profiles = [
     "name": "Tater Tot",
     "age": 24,
     "place": "Behind the supermarket · 1 field away",
-    "bio": "There’s a traffic cone in my kitchen and I genuinely don’t know why. Owns three costumes, no sensible coat. Surprisingly good at taxes. Seeking someone to text “you awake?” followed by a picture of a weird pigeon.",
+    "bio": "Banned from the garden center for asking to test-drive a wheelbarrow. Financially responsible, socially a loose shopping trolley. I have a detailed five-year plan for a feud with a goose. Looking for an accomplice who understands the difference between a red flag and a very festive banner.",
     "tags": [
-      "Side quests",
-      "Chaos with receipts",
-      "Pigeon updates"
+      "Goose feud ongoing",
+      "Tax returns immaculate",
+      "Wheelbarrow incident"
     ],
-    "prompt": "A fact about me that surprises people",
-    "answer": "The emergency spreadsheet is color-coded. The emergency is usually me.",
+    "prompt": "My perfect first date",
+    "answer": "We dress as inspectors and rate supermarket trolley wheels. No impersonation of actual officials. I learned.",
     "color": 22,
     "chat": {
-      "greeting": "Be honest. How many raccoons could fit in a trench coat before you got suspicious?",
-      "date": "Mini golf, but we invent secret backstories for everyone there.",
+      "greeting": "Quick question. Hypothetically. Do you own a fog machine?",
+      "date": "Normal cafe date. Absolutely normal. Ignore the wheelbarrow outside.",
       "food": "I ate cereal from a measuring jug. So yes, I’m available for dinner.",
       "replies": [
-        "Wait. I need to tell you what just happened at the bus stop.",
-        "Choose our next side quest: cursed thrift shop or mystery vending machine?"
+        "I’m doing the books for my own goose feud. Unfortunately it’s not tax deductible.",
+        "Before you judge, the goose escalated first."
       ],
       "bye": "Going to bed. If I text about pigeons, ignore me until breakfast."
     }
@@ -316,22 +316,22 @@ const profiles = [
     "name": "Desirée",
     "age": 27,
     "place": "City rooftop beds · 2 fields away",
-    "bio": "Romanticizing my commute until further notice. I make playlists for weather, outfits, and people I’ve met twice. Looking for a muse who can also help carry a bookcase upstairs.",
+    "bio": "Looking for a slow burn. Ideally we become soulmates by Thursday. I’ve already made a playlist for our first argument and one for your apology. My ex described me as “a lot,” which is strange because the screenplay only has three acts.",
     "tags": [
-      "Main character walks",
-      "Playlists",
-      "Big feelings"
+      "Playlist before first date",
+      "Soulmates pending",
+      "Your apology has a soundtrack"
     ],
     "prompt": "My toxic trait",
-    "answer": "I’ve already imagined our meet-cute. The dialogue needs work.",
+    "answer": "I can turn a three-minute response time into a six-episode limited series.",
     "color": 330,
     "chat": {
-      "greeting": "What song should be playing when we meet in the film version of this?",
-      "date": "A late coffee and a walk under city lights. Yes, I’ve thought about the soundtrack.",
+      "greeting": "Tell me your favorite song so I can decide whether this is fate.",
+      "date": "Coffee at sunset. I’ve written three versions of how we meet and brought the right coat.",
       "food": "Sharing fries is intimate. I don’t make the rules.",
       "replies": [
-        "Okay, that’s going in the imaginary screenplay.",
-        "Tell me a tiny detail about your day. I want the scene, not the synopsis."
+        "I made a playlist about a copy deadline. The client requested “less emotional devastation.”",
+        "That sounded different in the screenplay. Can we do another take?"
       ],
       "bye": "Goodnight. This is where the credits roll over a very good song."
     }
@@ -340,22 +340,22 @@ const profiles = [
     "name": "Ken",
     "age": 35,
     "place": "Business Park · 7 fields away",
-    "bio": "Founder. Disrupting the root vegetable space. Recently exited a long-term relationship; currently raising a seed round. Looking for alignment, shared values, and possibly feedback on a pitch deck.",
+    "bio": "Founder. Visionary. Temporarily sleeping in the office “by choice.” Seeking a co-founder for my personal life. Must be comfortable with equity instead of birthday presents. My last relationship ended due to misaligned KPIs, according to the exit survey I wrote myself.",
     "tags": [
-      "Founder mode",
-      "Networking?",
-      "Calendar link"
+      "Romance, pre-revenue",
+      "Stealth mode boyfriend",
+      "Emotional runway: 2 weeks"
     ],
     "prompt": "My five-year plan",
-    "answer": "Happy to walk you through the deck.",
+    "answer": "Exit. Sorry, did you mean the relationship or the company?",
     "color": 5,
     "chat": {
-      "greeting": "Great to connect. What are you building at the moment?",
-      "date": "Can you do a fifteen-minute coffee? I’ve got a hard stop at half past.",
+      "greeting": "Great to match. Can I get 15 minutes and your feedback on a problem worth $8 billion?",
+      "date": "Coffee is perfect. I’ve booked us a meeting room with an HDMI cable.",
       "food": "Interesting market. Have you considered subscription fries?",
       "replies": [
-        "Love that. What would scaling it look like?",
-        "Not to make this about work, but it does remind me of my startup."
+        "My therapist asked how I feel. I offered her dashboard access.",
+        "I hear you. Let me reframe that as a growth opportunity."
       ],
       "bye": "Signing off. Let’s circle back when we’ve both got bandwidth."
     }
@@ -388,22 +388,22 @@ const profiles = [
     "name": "Flake",
     "age": 26,
     "place": "Passing through · 12 fields away",
-    "bio": "barely on here. better in person. probably leaving next week but who knows. let’s do something spontaneous, unless i’m tired.",
+    "bio": "not looking for anything serious unless you start losing interest. emotionally available every third thursday. that person in the wedding photo is my cousin probably. “we should do something” is a legally non-binding statement.",
     "tags": [
-      "Bad texter",
-      "Go with the flow",
-      "No plans"
+      "Last seen typing…",
+      "“We should” specialist",
+      "Cousin probably"
     ],
     "prompt": "My ideal first date",
-    "answer": "we’ll figure it out",
+    "answer": "i’ll let you know nearer the time. what time? nearer it.",
     "color": 350,
     "chat": {
-      "greeting": "heyyy sorry just saw this",
-      "date": "yes definitely! not sure when tho",
+      "greeting": "heyyy stranger. missed you. have we spoken before?",
+      "date": "yes friday! actually might be away. keep it free though just in case",
       "food": "fries sound good tbh",
       "replies": [
-        "haha fair",
-        "wait what were we saying"
+        "between things. jobs. cities. explanations.",
+        "sorry just seen this. anyway you up?"
       ],
       "bye": "might crash. ttyl"
     }
