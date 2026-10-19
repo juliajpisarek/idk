@@ -575,6 +575,246 @@ const profiles = [
       ],
       "bye": "Goodnight. Let’s pick this up when you’re back."
     }
+  },
+  {
+    "name": "Petra",
+    "age": 30,
+    "place": "Alpine allotment · 5 fields away",
+    "bio": "I own six head torches and understand that not every weekend needs an itinerary. Rescue dispatcher, enthusiastic hiker, secretly a hotel-breakfast enthusiast. Looking for someone who knows turning back can be the sensible part of an adventure.",
+    "tags": [
+      "Prepared for weather",
+      "Actually takes breaks",
+      "Breakfast buffet fan"
+    ],
+    "prompt": "A green flag I notice",
+    "answer": "You change the plan when someone’s not having fun.",
+    "color": 0,
+    "chat": {
+      "greeting": "What’s your favorite place to go when you need a clear head?",
+      "date": "A gentle trail and a very ambitious bakery stop?",
+      "food": "Petra’s ideal meal involves good company and no rushing. What’s your comfort food?",
+      "replies": [
+        "I help coordinate rescues. Most days, good communication matters more than heroics.",
+        "I keep a folder of photos of Scout asleep in improbable positions."
+      ],
+      "bye": "Goodnight. We can pick this up when you’re back."
+    }
+  },
+  {
+    "name": "Rafi",
+    "age": 29,
+    "place": "Record Row · 2 fields away",
+    "bio": "I produce records, not excuses. Can spend an hour finding the right drum sound but will happily eat cereal for dinner. Soft-spoken until someone says all cables sound the same. Looking for someone who likes their own company and sometimes wants mine.",
+    "tags": [
+      "Studio nights",
+      "Quiet confidence",
+      "Cat on the mixing desk"
+    ],
+    "prompt": "A tiny act of love",
+    "answer": "Sending a song because one particular line made me think of you.",
+    "color": 0,
+    "chat": {
+      "greeting": "What song sounds like a place you used to live?",
+      "date": "Record shop, then coffee somewhere we can actually hear each other.",
+      "food": "Rafi’s ideal meal involves good company and no rushing. What’s your comfort food?",
+      "replies": [
+        "A client asked for the track to sound more purple. Annoyingly, I knew what they meant.",
+        "A playlist and an extremely reasonable request not to put drinks on the equipment."
+      ],
+      "bye": "Goodnight. We can pick this up when you’re back."
+    }
+  },
+  {
+    "name": "Blanche",
+    "age": 62,
+    "place": "Balcony Gardens · 3 fields away",
+    "bio": "Retired, not retiring. Two grown-up children, one very spoiled cat, and a suitcase that is never properly unpacked. I want a good laugh and a proper date. If you call me “young at heart,” I will beat you at cards for money.",
+    "tags": [
+      "Cards with consequences",
+      "Actual phone calls",
+      "Carry-on only"
+    ],
+    "prompt": "My dating advice",
+    "answer": "If they like you, you won’t need an international panel to interpret the message.",
+    "color": 0,
+    "chat": {
+      "greeting": "Tell me something you’re excited about. Not your blood pressure.",
+      "date": "Dinner and dancing. I will not pretend a loud bar is a personality.",
+      "food": "Blanche’s ideal meal involves good company and no rushing. What’s your comfort food?",
+      "replies": [
+        "Thirty years in travel. I can pack for a fortnight and spot a terrible itinerary instantly.",
+        "Changed my life at fifty-eight. The haircut was the easy part."
+      ],
+      "bye": "Goodnight. We can pick this up when you’re back."
+    }
+  },
+  {
+    "name": "Cash",
+    "age": 28,
+    "place": "Penthouse district · 9 fields away",
+    "bio": "Self-made. The sports car is a collaboration with a rental company. Seeking someone who believes in my vision and doesn’t ask to see the numbers. My ex said I talked about money too much. That’s a scarcity mindset.",
+    "tags": [
+      "Luxury, allegedly",
+      "Rented confidence",
+      "Opportunity incoming"
+    ],
+    "prompt": "My love language",
+    "answer": "Compound interest. And receiving.",
+    "color": 0,
+    "chat": {
+      "greeting": "How do you feel about the word “exclusive” on an event invitation?",
+      "date": "Rooftop drinks. The invitation says exclusive, which apparently means queue outside.",
+      "food": "Cash’s ideal meal involves good company and no rushing. What’s your comfort food?",
+      "replies": [
+        "I call it wealth consulting. My accountant keeps requesting a more concrete noun.",
+        "You bring curiosity. I bring a once-in-a-lifetime opportunity. Nobody is transferring money; this is a date, allegedly."
+      ],
+      "bye": "Goodnight. We can pick this up when you’re back."
+    }
+  },
+  {
+    "name": "Lyra",
+    "age": 27,
+    "place": "Moonflower beds · 4 fields away",
+    "bio": "I can show you Saturn through a telescope and explain why your horoscope is scientifically nonsense. I still read mine. Looking for someone curious, kind, and willing to hold the other end of a star chart while the wind humiliates us.",
+    "tags": [
+      "Space nerd",
+      "Hypocritical horoscope reader",
+      "Night garden"
+    ],
+    "prompt": "I contain multitudes",
+    "answer": "I know astrology isn’t astronomy. I also know you’d say that because you’re a Virgo.",
+    "color": 0,
+    "chat": {
+      "greeting": "What’s something about the universe you’ve always wondered?",
+      "date": "Stargazing and hot chocolate, with a cafe backup if it clouds over.",
+      "food": "Lyra’s ideal meal involves good company and no rushing. What’s your comfort food?",
+      "replies": [
+        "Planetarium presenter. I get paid to tell people to look up. A surprisingly lovely job.",
+        "You ask questions because you want to know, not because you want to catch me out."
+      ],
+      "bye": "Goodnight. We can pick this up when you’re back."
+    }
+  },
+  {
+    "name": "Hugo",
+    "age": 33,
+    "place": "Platform Patch · 6 fields away",
+    "bio": "I like trains in a way I have learned to describe more briefly on dates. Reliable, enthusiastic, makes a very good sandwich. Looking for someone with their own niche interest so we can take turns being unnecessarily detailed.",
+    "tags": [
+      "Public transport romantic",
+      "Flask ready",
+      "Niche hobby ally"
+    ],
+    "prompt": "My most romantic gesture",
+    "answer": "Planning a trip with a generous connection time. You deserve peace.",
+    "color": 0,
+    "chat": {
+      "greeting": "What’s your niche interest? I promise to ask follow-up questions.",
+      "date": "A train to the coast. I’ll bring sandwiches and a sensible connection time.",
+      "food": "Hugo’s ideal meal involves good company and no rushing. What’s your comfort food?",
+      "replies": [
+        "Railway signaling. My ideal day at work is deeply uneventful.",
+        "You can enjoy someone being excited without needing to share the obsession."
+      ],
+      "bye": "Goodnight. We can pick this up when you’re back."
+    }
+  },
+  {
+    "name": "Pippa",
+    "age": 26,
+    "place": "Roller Rink Row · 1 field away",
+    "bio": "Professional balloon-animal potato. Better at apologizing than parallel parking. I’m loud, affectionate, and sometimes need to remember a funny story is allowed to end. Looking for someone who likes a bit of silliness and can also have the difficult conversation.",
+    "tags": [
+      "Roller skates",
+      "Big laugh",
+      "Owns emergency confetti"
+    ],
+    "prompt": "A recent humbling experience",
+    "answer": "A six-year-old said my balloon giraffe looked unemployed.",
+    "color": 0,
+    "chat": {
+      "greeting": "What’s the last thing that made you laugh unexpectedly?",
+      "date": "Roller disco? Falling over together feels honest.",
+      "food": "Pippa’s ideal meal involves good company and no rushing. What’s your comfort food?",
+      "replies": [
+        "Party entertainer. I’ve negotiated harder over balloon colors than most diplomats.",
+        "We can laugh during the fancy dinner and still say what we mean afterward."
+      ],
+      "bye": "Goodnight. We can pick this up when you’re back."
+    }
+  },
+  {
+    "name": "Sterling",
+    "age": 41,
+    "place": "Manor Mounds · 8 fields away",
+    "bio": "Old-fashioned manners, modern tendency to send you correction notes. I do not argue; I explain until you agree. Seeking someone spontaneous within the framework of my preferred itinerary. My therapist described me as “an interesting project.”",
+    "tags": [
+      "Corrects the menu",
+      "Monologues politely",
+      "References available"
+    ],
+    "prompt": "My biggest green flag",
+    "answer": "I always apologize when you have misunderstood me.",
+    "color": 0,
+    "chat": {
+      "greeting": "Do you consider punctuality a virtue or merely a minimum requirement?",
+      "date": "I have shortlisted three restaurants and prepared a comparative assessment.",
+      "food": "Sterling’s ideal meal involves good company and no rushing. What’s your comfort food?",
+      "replies": [
+        "Etiquette consulting. Apparently “unsolicited correction” is not a recognized job title.",
+        "Turning “where shall we eat?” into a seminar with supporting documents."
+      ],
+      "bye": "Goodnight. We can pick this up when you’re back."
+    }
+  },
+  {
+    "name": "Miso",
+    "age": 30,
+    "place": "Dumpling Corner · 2 fields away",
+    "bio": "Bakery owner. Flour in my pockets, excellent listening face, learning not to apologize when someone else bumps into me. I show affection by feeding people, but I’m practicing saying the feelings out loud too. Seeking warmth and someone who washes the bowl.",
+    "tags": [
+      "Dumplings with grandparents",
+      "Quiet humor",
+      "Practicing boundaries"
+    ],
+    "prompt": "A little win I’m proud of",
+    "answer": "Told a customer we were closed without adding “sorry” four times.",
+    "color": 0,
+    "chat": {
+      "greeting": "What dish would you want someone to teach you?",
+      "date": "A little dumpling making, then tea. We can both be beginners at something.",
+      "food": "Miso’s ideal meal involves good company and no rushing. What’s your comfort food?",
+      "replies": [
+        "I run a bakery. Yes, early mornings. No, I’m not giving away the good tray of cinnamon rolls.",
+        "Be patient without treating me like I’m fragile."
+      ],
+      "bye": "Goodnight. We can pick this up when you’re back."
+    }
+  },
+  {
+    "name": "Fern",
+    "age": 28,
+    "place": "Workshop Woods · 3 fields away",
+    "bio": "I fix lamps, mend clothes, and do not date projects. If your chair wobbles I will notice before I sit down. Looking for a curious person who can admit they don’t know something and hold the torch at a useful angle.",
+    "tags": [
+      "Repair, don’t replace",
+      "Practical affection",
+      "Rat enthusiast"
+    ],
+    "prompt": "My hot take",
+    "answer": "Knowing when to ask for help is more useful than looking like you know everything.",
+    "color": 0,
+    "chat": {
+      "greeting": "What’s something broken you’ve kept because you want to fix it someday?",
+      "date": "Repair cafe open day, then lunch somewhere with stable chairs.",
+      "food": "Fern’s ideal meal involves good company and no rushing. What’s your comfort food?",
+      "replies": [
+        "I run a repair cafe. Most repairs start with a cup of tea and finding the right screwdriver.",
+        "Repairing the pocket you mentioned once, then pretending that was casual."
+      ],
+      "bye": "Goodnight. We can pick this up when you’re back."
+    }
   }
 ];
 profiles.forEach((profile,id)=>Object.assign(profile,profileDetails[id],{conversation:chatPersonalities[id]}));
@@ -707,10 +947,16 @@ $('admirer-close').onclick=()=>$('admirer-dialog').close();
 $('admirer-like').onclick=()=>finishAdmirer(true);
 $('admirer-pass').onclick=()=>finishAdmirer(false);
 
+function portraitPosition(id,column=0){
+ if(id>=24)return `${column*50}% ${((id-24)%5)*25}%`;
+ return isFreshProfile(id)?`${column*50}% ${(id-discoveryBatchStart)*20}%`:`${(id%3)*50}% ${Math.floor(id/3)*20}%`;
+}
 function setPortrait(el,id){
  el.classList.add('portrait');
  el.classList.toggle('fresh-photo',isFreshProfile(id));
- el.style.backgroundPosition=isFreshProfile(id)?`0% ${(id-discoveryBatchStart)*20}%`:`${(id%3)*50}% ${Math.floor(id/3)*20}%`;
+ el.classList.toggle('photo-wave-a',id>=24&&id<29);
+ el.classList.toggle('photo-wave-b',id>=29);
+ el.style.backgroundPosition=portraitPosition(id);
  el.setAttribute('aria-label',`Portrait of ${profiles[id].name}`);
 }
 function openProfile(id){
@@ -735,14 +981,14 @@ function showProfilePhoto(id,position){
  const photo=p.photos[profilePhotoIndex],image=$('full-profile-photo');
  image.classList.remove('photo-friends','photo-life');setPortrait(image,id);
  if(photo.kind!=='portrait')image.classList.add(`photo-${photo.kind}`);
- if(isFreshProfile(id))image.style.backgroundPosition=`${profilePhotoIndex*50}% ${(id-discoveryBatchStart)*20}%`;
+ if(isFreshProfile(id))image.style.backgroundPosition=portraitPosition(id,profilePhotoIndex);
  image.setAttribute('aria-label',`${p.name}: ${photo.caption}`);
  $('photo-caption').textContent=photo.caption;
  $('photo-count').textContent=`${profilePhotoIndex+1} / ${p.photos.length}`;
  $('photo-thumbs').replaceChildren(...p.photos.map((photo,i)=>{
   const button=document.createElement('button');button.className='photo-thumb';setPortrait(button,id);
   if(photo.kind!=='portrait')button.classList.add(`photo-${photo.kind}`);
-  if(isFreshProfile(id))button.style.backgroundPosition=`${i*50}% ${(id-discoveryBatchStart)*20}%`;
+  if(isFreshProfile(id))button.style.backgroundPosition=portraitPosition(id,i);
   button.setAttribute('aria-label',`Photo ${i+1}: ${photo.caption}`);
   button.setAttribute('aria-pressed',String(i===profilePhotoIndex));
   button.onclick=()=>showProfilePhoto(id,i);return button;
@@ -788,5 +1034,5 @@ $('reset-confirm').onclick=()=>{
  index=0;matches=[];passed=[];chats={};pollVotes={};history=[];
  admirer={seen:[],choices:[],selected:null};activeChat=null;viewedProfile=null;profilePhotoIndex=0;
  persist();render();renderMatches();tab(true);$('reset-dialog').close();
- $('status').textContent='A fresh start: all 24 potatoes are ready to meet you.';
+ $('status').textContent='A fresh start: all 34 potatoes are ready to meet you.';
 };

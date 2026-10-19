@@ -1,6 +1,6 @@
 # Spud 🥔
 
-A playful potato matchmaking demo with 24 illustrated profiles, likes, matches, undo, keyboard controls, and mobile swiping. Matches are saved in your browser. All matches are simulated; no account or backend is required.
+A playful potato matchmaking demo with 34 illustrated profiles, likes, matches, undo, keyboard controls, and mobile swiping. Matches are saved in your browser. All matches are simulated; no account or backend is required.
 
 ## Run
 
@@ -44,10 +44,14 @@ Passes in Discover and Secret Admirer are saved and excluded from future cards a
 
 ## Each visitor’s experience
 
-All 24 profiles are available to a new visitor, with no matches, passes, chats, or poll votes. State is stored only in this browser profile under the app’s storage key. Returning visitors retain their progress, and matched/passed potatoes stay excluded. Separate browsers have independent experiences; people sharing a browser profile share its progress. There is no sign-in or cross-device sync. The footer’s Start fresh action opens a confirmation before clearing only this app’s progress and restoring all cards.
+All 34 profiles are available to a new visitor, with no matches, passes, chats, or poll votes. State is stored only in this browser profile under the app’s storage key. Returning visitors retain their progress, and matched/passed potatoes stay excluded. Separate browsers have independent experiences; people sharing a browser profile share its progress. There is no sign-in or cross-device sync. The footer’s Start fresh action opens a confirmation before clearing only this app’s progress and restoring all cards.
 
 The six newest potatoes use assets/potato-new-arrivals.png, one character per row with portrait/friends/pet columns. Original photos and saved profile indices remain unchanged.
 
 ## Mobile swiping
 
 Drag cards horizontally to like or pass. Cards follow your finger with rotation and live labels; short drags snap back and decisive swipes or quick flicks dismiss the card. Vertical scrolling and profile buttons remain usable. Reduced-motion preferences skip the dismissal animation. Mouse dragging, action buttons, and keyboard controls remain supported.
+
+## Additional personalities
+
+Petra, Rafi, Blanche, Cash, Lyra, Hugo, Pippa, Sterling, Miso, and Fern are appended at indices 24–33. Each has three photos, a full bio, three prompt answers, lifestyle facts, a poll, and a scripted voice. Two 3-column by 5-row photo sheets (assets/potato-wave-a.png and assets/potato-wave-b.png) supply portrait/friends/pet galleries. Existing matches, passes, chats, and poll choices retain their original indices.

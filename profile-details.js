@@ -1123,5 +1123,445 @@ const profileDetails = [
         "caption": "Buttons. Head of studio naps and quality control."
       }
     ]
+  },
+  {
+    "facts": {
+      "Work": "Search-and-rescue dispatcher",
+      "Looking for": "Long-term partner",
+      "Relationship style": "Monogamy",
+      "Pets": "Border collie, Scout",
+      "Family plans": "Open to children",
+      "Habits": "Social drinker · Non-smoker",
+      "Daily life": "Prepared for weather",
+      "On repeat": "Indie folk · Trail playlists"
+    },
+    "prompts": [
+      {
+        "question": "An unpopular outdoors opinion",
+        "answer": "A walk is allowed to end at a bakery. It does not need an elevation chart."
+      },
+      {
+        "question": "My soft side",
+        "answer": "I keep a folder of photos of Scout asleep in improbable positions."
+      }
+    ],
+    "poll": {
+      "question": "Choose our summit reward",
+      "options": [
+        "Bakery stop",
+        "Scenic nap",
+        "Hotel breakfast, no summit"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Petra, caught in their natural habitat."
+      },
+      {
+        "kind": "friends",
+        "caption": "My friends showing me that a picnic is a legitimate destination."
+      },
+      {
+        "kind": "life",
+        "caption": "Scout, patiently pretending I can throw a ball far enough."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Audio producer",
+      "Looking for": "Long-term, with room for our own lives",
+      "Relationship style": "Monogamy",
+      "Pets": "Tabby cat, Vinyl",
+      "Family plans": "Undecided",
+      "Habits": "Social drinker · Non-smoker",
+      "Daily life": "Studio nights",
+      "On repeat": "Soul records · Unreleased demos"
+    },
+    "prompts": [
+      {
+        "question": "My most embarrassing skill",
+        "answer": "Identifying an appliance from its hum. Nobody asked."
+      },
+      {
+        "question": "Dating me comes with",
+        "answer": "A playlist and an extremely reasonable request not to put drinks on the equipment."
+      }
+    ],
+    "poll": {
+      "question": "Pick our listening session",
+      "options": [
+        "Your favorite album",
+        "A terrible first demo",
+        "Something neither of us knows"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Rafi, caught in their natural habitat."
+      },
+      {
+        "kind": "friends",
+        "caption": "My siblings helping cook dinner. Everyone wants to be executive producer."
+      },
+      {
+        "kind": "life",
+        "caption": "Vinyl checking whether the synthesizer is warm enough."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Retired travel agent",
+      "Looking for": "Companionship with good kissing",
+      "Relationship style": "Monogamy",
+      "Pets": "White cat, Duchess",
+      "Family plans": "Grown-up children · No more planned",
+      "Habits": "Social drinker · Non-smoker",
+      "Daily life": "Cards with consequences",
+      "On repeat": "Disco · Nina Simone"
+    },
+    "prompts": [
+      {
+        "question": "A non-negotiable",
+        "answer": "Be polite to the waiter. I will notice. I will also tip."
+      },
+      {
+        "question": "A wild thing I’ve done",
+        "answer": "Changed my life at fifty-eight. The haircut was the easy part."
+      }
+    ],
+    "poll": {
+      "question": "Where are we going next?",
+      "options": [
+        "A seaside weekend",
+        "The theater",
+        "Somewhere with dancing"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Blanche, caught in their natural habitat."
+      },
+      {
+        "kind": "friends",
+        "caption": "The card club. Sweet faces. Ruthless people."
+      },
+      {
+        "kind": "life",
+        "caption": "Duchess permitting precisely four minutes of affection."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Independent wealth mindset consultant",
+      "Looking for": "A partner who invests in us (literally)",
+      "Relationship style": "Monogamy",
+      "Pets": "Pomeranian, Dividend",
+      "Family plans": "Ask after the funding round",
+      "Habits": "Selective about nearly everything",
+      "Daily life": "Luxury, allegedly",
+      "On repeat": "Champagne playlists · Motivational podcasts"
+    },
+    "prompts": [
+      {
+        "question": "A fact that surprises people",
+        "answer": "The watch is not technically mine. It’s part of an ecosystem."
+      },
+      {
+        "question": "My perfect first date",
+        "answer": "You bring curiosity. I bring a once-in-a-lifetime opportunity. Nobody is transferring money; this is a date, allegedly."
+      }
+    ],
+    "poll": {
+      "question": "Our financial compatibility test",
+      "options": [
+        "Separate tabs",
+        "You get this one",
+        "Discuss my hypothetical yacht"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Cash, caught in their natural habitat."
+      },
+      {
+        "kind": "friends",
+        "caption": "The networking boys. Several assets pictured are hired by the hour."
+      },
+      {
+        "kind": "life",
+        "caption": "Dividend does not understand why we have to return the car."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Planetarium presenter",
+      "Looking for": "Cosmic chemistry, actual consistency",
+      "Relationship style": "Monogamy",
+      "Pets": "Black rabbit, Eclipse",
+      "Family plans": "Open to children",
+      "Habits": "Social drinker · Non-smoker",
+      "Daily life": "Space nerd",
+      "On repeat": "Dream pop · Space documentaries"
+    },
+    "prompts": [
+      {
+        "question": "A first date I’d love",
+        "answer": "Stargazing with hot chocolate and a backup indoor plan because clouds exist."
+      },
+      {
+        "question": "A relationship green flag",
+        "answer": "You ask questions because you want to know, not because you want to catch me out."
+      }
+    ],
+    "poll": {
+      "question": "Pick our cosmic destination",
+      "options": [
+        "Saturn’s rings",
+        "The moon",
+        "The cafe, it’s cold"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Lyra, caught in their natural habitat."
+      },
+      {
+        "kind": "friends",
+        "caption": "My friends pretending they can see the constellation I’m pointing at."
+      },
+      {
+        "kind": "life",
+        "caption": "Eclipse demonstrating a total eclipse of the parsley."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Railway signal engineer",
+      "Looking for": "A committed relationship",
+      "Relationship style": "Monogamy",
+      "Pets": "Spaniel, Ticket",
+      "Family plans": "Would like children",
+      "Habits": "Social drinker · Non-smoker",
+      "Daily life": "Public transport romantic",
+      "On repeat": "Folk radio · Railway podcasts"
+    },
+    "prompts": [
+      {
+        "question": "A surprising skill",
+        "answer": "I can tell whether a sandwich will survive a four-hour journey."
+      },
+      {
+        "question": "We’ll get along if",
+        "answer": "You can enjoy someone being excited without needing to share the obsession."
+      }
+    ],
+    "poll": {
+      "question": "Our weekend ticket says…",
+      "options": [
+        "Coastal railway",
+        "Sleeper adventure",
+        "Stay home, build a model"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Hugo, caught in their natural habitat."
+      },
+      {
+        "kind": "friends",
+        "caption": "Friends humoring me on a railway picnic. I brought every sandwich."
+      },
+      {
+        "kind": "life",
+        "caption": "Ticket, the only one who loves timetables as much as walks."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Children’s party entertainer",
+      "Looking for": "A fun relationship, with follow-through",
+      "Relationship style": "Monogamy",
+      "Pets": "Guinea pigs, Pip and Squeak",
+      "Family plans": "Wants children someday",
+      "Habits": "Social drinker · Non-smoker",
+      "Daily life": "Roller skates",
+      "On repeat": "Pop anthems · Roller disco"
+    },
+    "prompts": [
+      {
+        "question": "What I’m working on",
+        "answer": "Not filling every silence. Some people are thinking, Pippa."
+      },
+      {
+        "question": "My ideal romance",
+        "answer": "We can laugh during the fancy dinner and still say what we mean afterward."
+      }
+    ],
+    "poll": {
+      "question": "Choose our deeply serious date",
+      "options": [
+        "Roller disco",
+        "Mini golf, dramatic commentary",
+        "Learn one terrible dance"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Pippa, caught in their natural habitat."
+      },
+      {
+        "kind": "friends",
+        "caption": "My birthday. Everyone else was told it was a normal dinner."
+      },
+      {
+        "kind": "life",
+        "caption": "Pip and Squeak, professional lettuce inspectors."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Etiquette consultant",
+      "Looking for": "A partner who meets my standards",
+      "Relationship style": "Monogamy",
+      "Pets": "Grey cat, Earl",
+      "Family plans": "Children negotiable after references",
+      "Habits": "Selective about nearly everything",
+      "Daily life": "Corrects the menu",
+      "On repeat": "Classical · His own voice"
+    },
+    "prompts": [
+      {
+        "question": "My idea of compromise",
+        "answer": "We consider both options, then choose the one I recommended initially."
+      },
+      {
+        "question": "An unusual talent",
+        "answer": "Turning “where shall we eat?” into a seminar with supporting documents."
+      }
+    ],
+    "poll": {
+      "question": "What’s our approach to a disagreement?",
+      "options": [
+        "Review my notes",
+        "Adopt my proposal",
+        "Request an adjournment"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Sterling, caught in their natural habitat."
+      },
+      {
+        "kind": "friends",
+        "caption": "A family dinner. Someone used the wrong fork. We are still healing."
+      },
+      {
+        "kind": "life",
+        "caption": "Earl taking the square I had explicitly reserved for the bishop."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Bakery owner",
+      "Looking for": "A slow, intentional partnership",
+      "Relationship style": "Monogamy",
+      "Pets": "Rescue dog, Sesame",
+      "Family plans": "Open to discussing children",
+      "Habits": "Social drinker · Non-smoker",
+      "Daily life": "Dumplings with grandparents",
+      "On repeat": "Lo-fi beats · Old family favorites"
+    },
+    "prompts": [
+      {
+        "question": "My family tradition",
+        "answer": "Dumplings: everybody helps, everybody claims their folding method is the correct one."
+      },
+      {
+        "question": "The way to win me over",
+        "answer": "Be patient without treating me like I’m fragile."
+      }
+    ],
+    "poll": {
+      "question": "Choose our kitchen experiment",
+      "options": [
+        "Grandma’s dumplings",
+        "Your comfort meal",
+        "A recipe with alarming reviews"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Miso, caught in their natural habitat."
+      },
+      {
+        "kind": "friends",
+        "caption": "Grandparents teaching me the “only correct” dumpling fold. Again."
+      },
+      {
+        "kind": "life",
+        "caption": "Sesame, finally comfortable enough to steal the good cushion."
+      }
+    ]
+  },
+  {
+    "facts": {
+      "Work": "Repair cafe coordinator",
+      "Looking for": "Something lasting, repaired when needed",
+      "Relationship style": "Monogamy",
+      "Pets": "Pet rat, Solder",
+      "Family plans": "Doesn’t want children",
+      "Habits": "Social drinker · Non-smoker",
+      "Daily life": "Repair, don’t replace",
+      "On repeat": "Post-punk · Repair radio"
+    },
+    "prompts": [
+      {
+        "question": "An ideal Saturday",
+        "answer": "Fix two things, break one thing, lunch with friends, call it progress."
+      },
+      {
+        "question": "I will absolutely flirt by",
+        "answer": "Repairing the pocket you mentioned once, then pretending that was casual."
+      }
+    ],
+    "poll": {
+      "question": "Pick our workshop project",
+      "options": [
+        "A wobbly chair",
+        "A suspicious lamp",
+        "Patch each other’s jackets"
+      ]
+    },
+    "photos": [
+      {
+        "kind": "portrait",
+        "caption": "Fern, caught in their natural habitat."
+      },
+      {
+        "kind": "friends",
+        "caption": "The repair crew. We fixed the table before eating off it."
+      },
+      {
+        "kind": "life",
+        "caption": "Solder, inspecting my work from a strictly non-supervisory position."
+      }
+    ]
   }
 ];
